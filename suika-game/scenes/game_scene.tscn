@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhs2iwu52rqgq"]
+
+[ext_resource type="Script" path="res://scripts/scenes/game_scene.gd" id="1_e8a2n"]
+[ext_resource type="Script" path="res://scripts/game_scene/bg_loader.gd" id="1_wafvp"]
+[ext_resource type="Script" path="res://scripts/game_scene/player.gd" id="2_lqhty"]
+[ext_resource type="Texture2D" uid="uid://dy81veycgduwd" path="res://assets/sprites/blue.svg" id="3_3ung0"]
+[ext_resource type="Texture2D" uid="uid://cciqjm7s3huxx" path="res://assets/sprites/white_point.jpg" id="4_vdkhh"]
+[ext_resource type="Script" path="res://scripts/game_scene/deadline.gd" id="5_8euk6"]
+[ext_resource type="Texture2D" uid="uid://5envx5ygnmqp" path="res://assets/sprites/wall_point.jpg" id="5_tqjfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3bwn"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rk3a4"]
+size = Vector2(1, 1)
+
+[node name="game_scene" type="Node2D"]
+script = ExtResource("1_e8a2n")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+script = ExtResource("1_wafvp")
+
+[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("move_area", "hand_node")]
+position = Vector2(437.827, 52.926)
+scale = Vector2(1, 0.996779)
+script = ExtResource("2_lqhty")
+speed = 200.0
+move_area = NodePath("../moveline")
+hand_node = NodePath("hand_point")
+
+[node name="skin_sprite" type="Sprite2D" parent="Player"]
+position = Vector2(17.5701, -16.7247)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_3ung0")
+
+[node name="support_line" type="Sprite2D" parent="Player"]
+position = Vector2(0, 316.157)
+scale = Vector2(3, 630)
+texture = ExtResource("4_vdkhh")
+
+[node name="hand_point" type="Node2D" parent="Player"]
+
+[node name="moveline" type="Sprite2D" parent="."]
+position = Vector2(646, 54.129)
+scale = Vector2(450, 5)
+texture = ExtResource("4_vdkhh")
+
+[node name="deadline" type="Sprite2D" parent="."]
+position = Vector2(645, 75)
+texture = ExtResource("4_vdkhh")
+script = ExtResource("5_8euk6")
+
+[node name="Container" type="Node2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Container"]
+position = Vector2(0, 72.0814)
+
+[node name="left_CollisionShape2D" type="CollisionShape2D" parent="Container/StaticBody2D"]
+position = Vector2(-250, -120)
+scale = Vector2(7.273, 800)
+shape = SubResource("RectangleShape2D_w3bwn")
+
+[node name="left_wall" type="Sprite2D" parent="Container/StaticBody2D"]
+position = Vector2(-250, -25)
+scale = Vector2(5, 550)
+texture = ExtResource("5_tqjfx")
+
+[node name="right_CollisionShape2D" type="CollisionShape2D" parent="Container/StaticBody2D"]
+position = Vector2(250, -120)
+scale = Vector2(7.273, 800)
+shape = SubResource("RectangleShape2D_w3bwn")
+
+[node name="right_wall" type="Sprite2D" parent="Container/StaticBody2D"]
+position = Vector2(250, -25)
+scale = Vector2(5, 550)
+texture = ExtResource("5_tqjfx")
+
+[node name="bot_CollisionShape2D" type="CollisionShape2D" parent="Container/StaticBody2D"]
+position = Vector2(0, 248)
+scale = Vector2(500, 5)
+shape = SubResource("RectangleShape2D_rk3a4")
+
+[node name="bot_wall" type="Sprite2D" parent="Container/StaticBody2D/bot_CollisionShape2D"]
+texture = ExtResource("5_tqjfx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(640, 360)

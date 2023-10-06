@@ -1,0 +1,412 @@
+[gd_scene load_steps=7 format=3 uid="uid://exlsckiu372"]
+
+[ext_resource type="Script" path="res://global/ui_manager.gd" id="1_d7l5o"]
+[ext_resource type="Script" path="res://scripts/ui/game_view_ui.gd" id="1_ivh0y"]
+[ext_resource type="Texture2D" uid="uid://dy81veycgduwd" path="res://assets/sprites/blue.svg" id="2_6d5pd"]
+[ext_resource type="Script" path="res://scripts/ui/menu_ui.gd" id="2_mub81"]
+[ext_resource type="Script" path="res://scripts/ui/setting_ui.gd" id="3_nbdfk"]
+[ext_resource type="Script" path="res://scripts/ui/game_over_ui.gd" id="6_2ync4"]
+
+[node name="UIManagerCanvas" type="CanvasLayer"]
+script = ExtResource("1_d7l5o")
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuUI" type="Control" parent="UIRoot"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_mub81")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/MenuUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="PlayButton" type="Button" parent="UIRoot/MenuUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 88.135
+offset_top = -366.0
+offset_right = 332.135
+offset_bottom = -299.0
+grow_vertical = 0
+text = "START_GAME"
+
+[node name="SettingButton" type="Button" parent="UIRoot/MenuUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 88.135
+offset_top = -269.0
+offset_right = 332.135
+offset_bottom = -202.0
+grow_vertical = 0
+text = "SETTING"
+
+[node name="GameViewUI" type="Control" parent="UIRoot"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_ivh0y")
+
+[node name="ScoreTextureRect" type="TextureRect" parent="UIRoot/GameViewUI"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 45.0
+offset_right = 315.0
+offset_bottom = 289.0
+texture = ExtResource("2_6d5pd")
+
+[node name="ScoreTitle" type="Label" parent="UIRoot/GameViewUI/ScoreTextureRect"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 17.0
+offset_right = 147.0
+offset_bottom = 43.0
+text = "SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UIRoot/GameViewUI/ScoreTextureRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 75.0
+offset_right = 221.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 71
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Next" type="TextureRect" parent="UIRoot/GameViewUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -282.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = 284.0
+grow_horizontal = 0
+texture = ExtResource("2_6d5pd")
+
+[node name="NextTitle" type="Label" parent="UIRoot/GameViewUI/Next"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 17.0
+offset_right = 147.0
+offset_bottom = 43.0
+text = "NEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextTextureRect" type="TextureRect" parent="UIRoot/GameViewUI/Next"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.535
+anchor_right = 0.5
+anchor_bottom = 0.535
+offset_left = -79.0
+offset_top = -54.54
+offset_right = 78.0
+offset_bottom = 54.46
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingButton" type="Button" parent="UIRoot/GameViewUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_bottom = 56.0
+grow_horizontal = 0
+text = "SETTING"
+
+[node name="SettingUI" type="Control" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_nbdfk")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/SettingUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -273.0
+offset_right = 234.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[node name="title" type="Label" parent="UIRoot/SettingUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 3.05176e-05
+offset_bottom = 58.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "SETTING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="UIRoot/SettingUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_bottom = 37.0
+grow_horizontal = 0
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/SettingUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="SOUND_VBoxContainer" type="VBoxContainer" parent="UIRoot/SettingUI/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="ColorRect" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer"]
+custom_minimum_size = Vector2(10, 30)
+layout_mode = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Sound" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer/Title"]
+layout_mode = 2
+offset_right = 469.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 20
+text = "SOUND"
+horizontal_alignment = 1
+
+[node name="MAIN_SOUND" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer"]
+layout_mode = 2
+text = "MAIN_SOUND"
+
+[node name="HSlider" type="HSlider" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer/MAIN_SOUND"]
+layout_mode = 2
+offset_left = 128.0
+offset_top = 6.0
+offset_right = 375.0
+offset_bottom = 22.0
+max_value = 1.0
+step = 0.01
+
+[node name="main_sound_value" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer/MAIN_SOUND"]
+layout_mode = 2
+offset_left = 388.0
+offset_right = 436.0
+offset_bottom = 26.0
+text = "100"
+
+[node name="BGM_SOUND" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer"]
+layout_mode = 2
+text = "BGM_SOUND"
+
+[node name="HSlider" type="HSlider" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer/BGM_SOUND"]
+layout_mode = 2
+offset_left = 128.0
+offset_top = 5.0
+offset_right = 375.0
+offset_bottom = 21.0
+max_value = 1.0
+step = 0.01
+
+[node name="bgm_sound_value" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer/BGM_SOUND"]
+layout_mode = 2
+offset_left = 388.0
+offset_right = 436.0
+offset_bottom = 26.0
+text = "100"
+
+[node name="FX_SOUND" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer"]
+layout_mode = 2
+text = "FX_SOUND"
+
+[node name="HSlider" type="HSlider" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer/FX_SOUND"]
+layout_mode = 2
+offset_left = 128.0
+offset_top = 5.0
+offset_right = 375.0
+offset_bottom = 21.0
+max_value = 1.0
+step = 0.01
+
+[node name="fx_sound_value" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/SOUND_VBoxContainer/FX_SOUND"]
+layout_mode = 2
+offset_left = 388.0
+offset_right = 436.0
+offset_bottom = 26.0
+text = "100"
+
+[node name="Lang_VBoxContainer" type="VBoxContainer" parent="UIRoot/SettingUI/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="ColorRect" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Lang_VBoxContainer"]
+custom_minimum_size = Vector2(10, 30)
+layout_mode = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="LANGUAGE" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Lang_VBoxContainer/Title"]
+layout_mode = 2
+offset_right = 469.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 20
+text = "LANGUAGE"
+horizontal_alignment = 1
+
+[node name="LangOptionButton" type="OptionButton" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Lang_VBoxContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "中文"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+popup/item_2/text = "日本語"
+popup/item_2/id = 2
+
+[node name="GameOverUI" type="Control" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_2ync4")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/GameOverUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.2, 0.2, 0.12549)
+
+[node name="Label" type="Label" parent="UIRoot/GameOverUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 33.0
+offset_right = 44.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "GAMEOVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SCORELabel" type="Label" parent="UIRoot/GameOverUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_top = 87.0
+offset_right = -19.0
+offset_bottom = 113.0
+grow_horizontal = 2
+text = "SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SCORELabelValue" type="Label" parent="UIRoot/GameOverUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 6.0
+offset_top = 90.0
+offset_right = 153.0
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BESTSCORELabel" type="Label" parent="UIRoot/GameOverUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -117.0
+offset_top = 115.0
+offset_right = -9.0
+offset_bottom = 141.0
+grow_horizontal = 2
+text = "BEST_SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BESTSCORELabelValue" type="Label" parent="UIRoot/GameOverUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 26.0
+offset_top = 115.0
+offset_right = 134.0
+offset_bottom = 141.0
+grow_horizontal = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="UIRoot/GameOverUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.0
+offset_top = 212.935
+offset_right = 53.0
+offset_bottom = 264.935
+grow_horizontal = 2
+text = "PLAY_AGAIN"

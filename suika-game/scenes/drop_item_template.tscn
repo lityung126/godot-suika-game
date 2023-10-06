@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dyv8d531sieyu"]
+
+[node name="drop_item_template" type="RigidBody2D"]
+center_of_mass_mode = 1
+continuous_cd = 1
+max_contacts_reported = 3
+contact_monitor = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+region_rect = Rect2(55, 50, 65, 50)
