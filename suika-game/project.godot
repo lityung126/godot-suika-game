@@ -17,12 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GameManager="*res://global/game_manager.gd"
 ConfigManager="*res://global/config_manager.gd"
 DropManager="*res://global/drop_manager.gd"
 ResourceManager="*res://global/resource_manager.gd"
 AudioManager="*res://global/audio_manager.gd"
 ScoreManager="*res://global/score_manager.gd"
-GameManager="*res://global/game_manager.gd"
 UIManagerCanvas="*res://global/ui_manager_canvas.tscn"
 
 [display]
@@ -30,6 +30,10 @@ UIManagerCanvas="*res://global/ui_manager_canvas.tscn"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/initial_position_type=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/coi_serviceworker/plugin.cfg")
 
 [input]
 

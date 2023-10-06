@@ -1,17 +1,18 @@
 extends Node
 
 var config_file = ConfigFile.new();
-
 var drop_item_config_array : Array = [];
 var drop_rate_config_array : Array = [];
 var score_section_array : Array = [];
-
 var bgm_section_array : Array = [];
 var sound_section_array : Array = [];
 
 func _ready():
 	print("1. 初始化表格")
-	config_file.load("streaming_data/settings/config.ini")
+	if GameManager.os_web:
+		config_file.load("res://config_web.ini")
+	else :
+		config_file.load("streaming_data/settings/config.ini")
 	_init_drops_section();
 	_init_drop_rate_section();
 	_init_bgm_section();
