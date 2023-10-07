@@ -9,7 +9,7 @@ func _ready():
 		"Web":
 			print ("running on web")
 			os_web = true
-		
+	
 
 func set_dead_line_y(y : float):
 	dead_line_y = y;
