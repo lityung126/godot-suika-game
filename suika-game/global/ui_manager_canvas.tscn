@@ -19,7 +19,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MenuUI" type="Control" parent="UIRoot"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,6 +150,7 @@ grow_horizontal = 0
 text = "SETTING"
 
 [node name="SettingUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -312,6 +312,7 @@ popup/item_2/text = "日本語"
 popup/item_2/id = 2
 
 [node name="GameOverUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

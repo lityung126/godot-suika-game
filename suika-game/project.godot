@@ -35,6 +35,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/coi_serviceworker/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://fonts/NotoSansTC-Regular.ttf"
+
 [input]
 
 player_left={
