@@ -77,20 +77,24 @@ func _generate_idle_audio_stream_player() -> AudioStreamPlayer:
 	return ap
 
 func _generate_audio_stream(path : String) -> AudioStream:
-	var extension = path.get_extension()
-	extension = extension.to_lower()
-	match extension:
-		"mp3":
-			return _load_mp3(path)
-		"ogg":
-			return _load_ogg(path)
-		"wav":
-			return _load_wav(path)
-		_:
-			print("not support format " , extension)
-			return null
+	if GameManager.os_web:
+		return load(path)
+	else :
+		var extension = path.get_extension()
+		extension = extension.to_lower()
+		match extension:
+			"mp3":
+				return _load_mp3(path)
+			"ogg":
+				return _load_ogg(path)
+			"wav":
+				return _load_wav(path)
+			_:
+				print("not support format " , extension)
+				return null
 	
 func _load_mp3(path) -> AudioStream:
+	
 	var mp3_file = FileAccess.open(path, FileAccess.READ)
 	var stream = AudioStreamMP3.new()
 	stream.data = mp3_file.get_buffer(mp3_file.get_length())

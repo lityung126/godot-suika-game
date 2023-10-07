@@ -4,7 +4,7 @@ var bitmap_cache_dict = {}
 var image_cache_dict = {}
 var texture_cache_dict = {}
 
-func get_texture(path : String) -> ImageTexture :
+func get_texture(path : String) -> Texture2D :
 	if not texture_cache_dict.has(path):
 		var image = get_image(path)
 		if image == null :
@@ -17,11 +17,15 @@ func get_texture(path : String) -> ImageTexture :
 
 func get_image(path : String) -> Image :
 	if not image_cache_dict.has(path):
-		var image = Image.new()
-		var err = image.load(path);
-		if not err  == OK:
-			printerr("cant find image")
-			return null
+		var image : Image = null;
+		if GameManager.os_web:
+			image = load(path).get_image()
+		else :
+			image = Image.new()
+			var err = image.load(path);
+			if not err  == OK:
+				printerr("cant find image")
+				return null
 		image_cache_dict[path] = image;
 	return image_cache_dict[path]
 
