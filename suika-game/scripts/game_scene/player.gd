@@ -8,6 +8,7 @@ class_name player
 @export var hand_node : Node2D;
 
 @onready var skin_sprite = $skin_sprite
+@onready var support_line = $support_line
 
 var _drop_interval_timer : float = 0;
 var currentDropItem : Node
@@ -27,6 +28,12 @@ func _ready():
 	skin_sprite.texture = ResourceManager.get_texture(ConfigManager.player_config.image_path)
 	skin_sprite.position.x = ConfigManager.player_config.offset_x
 	skin_sprite.position.y = ConfigManager.player_config.offset_y
+	_update_assitive_line();
+	GameManager.assistive_line_changed.connect(_update_assitive_line);
+
+func _update_assitive_line():
+	support_line.visible = GameManager.assistive_line_enable;
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

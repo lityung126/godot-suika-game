@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://exlsckiu372"]
+[gd_scene load_steps=8 format=3 uid="uid://exlsckiu372"]
 
 [ext_resource type="Script" path="res://global/ui_manager.gd" id="1_d7l5o"]
 [ext_resource type="Script" path="res://scripts/ui/game_view_ui.gd" id="1_ivh0y"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/ui/menu_ui.gd" id="2_mub81"]
 [ext_resource type="Script" path="res://scripts/ui/setting_ui.gd" id="3_nbdfk"]
 [ext_resource type="Script" path="res://scripts/ui/game_over_ui.gd" id="6_2ync4"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_8nfys"]
 
 [node name="UIManagerCanvas" type="CanvasLayer"]
 script = ExtResource("1_d7l5o")
@@ -73,6 +75,7 @@ grow_vertical = 0
 text = "SETTING"
 
 [node name="GameViewUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -193,7 +196,6 @@ expand_mode = 5
 stretch_mode = 3
 
 [node name="SettingUI" type="Control" parent="UIRoot"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -326,6 +328,58 @@ offset_left = 388.0
 offset_right = 436.0
 offset_bottom = 26.0
 text = "100"
+
+[node name="Game_VBox" type="VBoxContainer" parent="UIRoot/SettingUI/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="ColorRect" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Game_VBox"]
+custom_minimum_size = Vector2(10, 30)
+layout_mode = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="LANGUAGE" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Game_VBox/Title"]
+layout_mode = 2
+offset_right = 469.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 20
+text = "GAME"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Game_VBox"]
+layout_mode = 2
+text = "ASSISTIVE_LINE"
+
+[node name="OnCheckBox" type="CheckBox" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Game_VBox/Label"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 3.0
+offset_right = 191.0
+offset_bottom = 27.0
+button_pressed = true
+button_group = SubResource("ButtonGroup_8nfys")
+
+[node name="Label" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Game_VBox/Label"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 1.0
+offset_right = 232.0
+offset_bottom = 28.0
+text = "On"
+
+[node name="OffCheckBox" type="CheckBox" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Game_VBox/Label"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 1.0
+offset_right = 290.0
+offset_bottom = 25.0
+button_group = SubResource("ButtonGroup_8nfys")
+
+[node name="Label2" type="Label" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/Game_VBox/Label"]
+layout_mode = 0
+offset_left = 291.0
+offset_right = 331.0
+offset_bottom = 27.0
+text = "Off"
 
 [node name="Lang_VBoxContainer" type="VBoxContainer" parent="UIRoot/SettingUI/ColorRect/VBoxContainer"]
 layout_mode = 2

@@ -21,6 +21,16 @@ script = ExtResource("1_e8a2n")
 position = Vector2(640, 360)
 script = ExtResource("1_wafvp")
 
+[node name="moveline" type="Sprite2D" parent="."]
+position = Vector2(646, 84.129)
+scale = Vector2(450, 5)
+texture = ExtResource("4_vdkhh")
+
+[node name="deadline" type="Sprite2D" parent="."]
+position = Vector2(645, 105)
+texture = ExtResource("4_vdkhh")
+script = ExtResource("5_8euk6")
+
 [node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("move_area", "hand_node")]
 position = Vector2(437.827, 82.926)
 scale = Vector2(1, 0.996779)
@@ -39,16 +49,6 @@ scale = Vector2(3, 630)
 texture = ExtResource("4_vdkhh")
 
 [node name="hand_point" type="Node2D" parent="Player"]
-
-[node name="moveline" type="Sprite2D" parent="."]
-position = Vector2(646, 84.129)
-scale = Vector2(450, 5)
-texture = ExtResource("4_vdkhh")
-
-[node name="deadline" type="Sprite2D" parent="."]
-position = Vector2(645, 105)
-texture = ExtResource("4_vdkhh")
-script = ExtResource("5_8euk6")
 
 [node name="Container" type="Node2D" parent="."]
 position = Vector2(640, 390)

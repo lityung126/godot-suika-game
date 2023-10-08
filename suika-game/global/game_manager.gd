@@ -1,10 +1,12 @@
 extends Node
 
+var assistive_line_enable : bool = true;
 var dead_line_y : float
 var save_local : SaveLocal;
 var os_web : bool = false
 
 var SAVEPATH = "user://localsave.save"
+signal assistive_line_changed
 
 func _ready():
 	match OS.get_name():
@@ -33,4 +35,10 @@ func game_over():
 func restart_game():
 	ScoreManager.clear_score();
 	get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
+	
+
+func set_assistive_line_enable(enable : bool):
+	assistive_line_enable = enable
+	assistive_line_changed.emit()
+	pass
 	
