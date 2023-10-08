@@ -22,7 +22,7 @@ position = Vector2(640, 360)
 script = ExtResource("1_wafvp")
 
 [node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("move_area", "hand_node")]
-position = Vector2(437.827, 52.926)
+position = Vector2(437.827, 82.926)
 scale = Vector2(1, 0.996779)
 script = ExtResource("2_lqhty")
 speed = 200.0
@@ -31,7 +31,6 @@ hand_node = NodePath("hand_point")
 
 [node name="skin_sprite" type="Sprite2D" parent="Player"]
 position = Vector2(17.5701, -16.7247)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_3ung0")
 
 [node name="support_line" type="Sprite2D" parent="Player"]
@@ -42,17 +41,17 @@ texture = ExtResource("4_vdkhh")
 [node name="hand_point" type="Node2D" parent="Player"]
 
 [node name="moveline" type="Sprite2D" parent="."]
-position = Vector2(646, 54.129)
+position = Vector2(646, 84.129)
 scale = Vector2(450, 5)
 texture = ExtResource("4_vdkhh")
 
 [node name="deadline" type="Sprite2D" parent="."]
-position = Vector2(645, 75)
+position = Vector2(645, 105)
 texture = ExtResource("4_vdkhh")
 script = ExtResource("5_8euk6")
 
 [node name="Container" type="Node2D" parent="."]
-position = Vector2(640, 360)
+position = Vector2(640, 390)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Container"]
 position = Vector2(0, 72.0814)

@@ -22,7 +22,6 @@ func hide_ui(ui_name : UI_NAMES):
 	_ui_dict[ui_name].visible = false
 	_update_ui_lock()
 
-
 func hide_all_ui():
 	for ui in _ui_dict.values():
 		ui.visible = false

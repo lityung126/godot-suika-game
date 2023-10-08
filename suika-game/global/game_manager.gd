@@ -30,8 +30,6 @@ func game_over():
 		save_local.top_score = new_top_score;
 		save_local.save()
 	
-	
-
 func restart_game():
 	ScoreManager.clear_score();
 	get_tree().change_scene_to_file("res://scenes/game_scene.tscn")

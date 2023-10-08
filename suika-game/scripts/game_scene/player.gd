@@ -7,6 +7,8 @@ class_name player
 @export var move_area : Sprite2D;
 @export var hand_node : Node2D;
 
+@onready var skin_sprite = $skin_sprite
+
 var _drop_interval_timer : float = 0;
 var currentDropItem : Node
 
@@ -21,6 +23,10 @@ func _ready():
 	
 	self.position.x = (left_bound + right_bound) / 2
 	self.position.y = move_area.position.y;
+	
+	skin_sprite.texture = ResourceManager.get_texture(ConfigManager.player_config.image_path)
+	skin_sprite.position.x = ConfigManager.player_config.offset_x
+	skin_sprite.position.y = ConfigManager.player_config.offset_y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

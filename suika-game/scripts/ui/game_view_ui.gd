@@ -3,9 +3,8 @@ class_name GameViewUI
 
 @onready var scoreLabel = $ColorRect/ScoreLabel
 @onready var top_score_label = $ColorRect/TopScoreLabel
-@onready var nextTextureRect = $Next/NextTextureRect
+@onready var nextTextureRect = $ColorRect2/NextTextureRect
 @onready var setting_button = $SettingButton
-
 
 var updateTextureRectCallable : Callable
 var _update_score_text_callable : Callable
@@ -19,7 +18,6 @@ func _ready():
 	setting_button.button_up.connect(_on_setting_click)
 	DropManager.event_on_next_drop_item_update.connect(updateTextureRectCallable);
 	ScoreManager.event_on_score_update.connect(_update_score_text_callable);
-	
 
 func _exit_tree():
 	DropManager.event_on_next_drop_item_update.disconnect(updateTextureRectCallable);
@@ -33,11 +31,9 @@ func _updateTextureRect():
 	for drop_item_config in DropManager.drop_item_config_array:
 		if drop_item_config.name == next_name:
 			nextTextureRect.texture = ResourceManager.get_texture(drop_item_config.image_path)
-			
+
 func _on_setting_click():
 	UIManagerCanvas.show_ui(UIManager.UI_NAMES.SettingUI);
 
 func on_enable():
 	top_score_label.text = ScoreManager.get_top_score_string()
-	
-

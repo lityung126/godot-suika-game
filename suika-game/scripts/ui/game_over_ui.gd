@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var score_label_value = $ColorRect/SCORELabelValue
 @onready var bestscore_label_value = $ColorRect/BESTSCORELabelValue
 @onready var play_again_button = $ColorRect/PlayAgainButton
@@ -11,7 +10,6 @@ func _ready():
 
 func _on_play_again_click():
 	GameManager.restart_game();
-
 
 func on_enable():
 	# 此處會在更新最高分前被呼叫 所以可以讀取top score 來當作上次最高分
@@ -24,7 +22,6 @@ func on_enable():
 	topScore = ScoreManager.get_top_score()
 	if topScore == -1:
 		topScore = 0
-		
 	
 	score_label_value.text = str(ScoreManager.current_score)
 	if isNewRecord:
