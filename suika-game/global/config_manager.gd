@@ -26,6 +26,7 @@ drop_3="streaming_data/sprites/animals/3.png"
 drop_4="streaming_data/sprites/animals/4.png"
 drop_5="streaming_data/sprites/animals/5.png"
 drop_6="streaming_data/sprites/animals/6.png"
+drop_7="streaming_data/sprites/animals/7.png"
 
 ;合併時會獲得的分數
 ; 1 3 6 10 15 21 28 36 45 55
@@ -35,6 +36,7 @@ drop_2=3
 drop_3=6
 drop_4=10
 drop_5=15
+drop_6=21
 
 ;掉落機率
 [drop_rate]
