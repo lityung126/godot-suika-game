@@ -14,11 +14,14 @@ func _ready():
 
 func show_ui(ui_name : UI_NAMES):
 	_ui_dict[ui_name].visible = true
+	if _ui_dict[ui_name].has_method("on_enable"):
+		_ui_dict[ui_name].on_enable();
 	_update_ui_lock()
 
 func hide_ui(ui_name : UI_NAMES):
 	_ui_dict[ui_name].visible = false
 	_update_ui_lock()
+
 
 func hide_all_ui():
 	for ui in _ui_dict.values():

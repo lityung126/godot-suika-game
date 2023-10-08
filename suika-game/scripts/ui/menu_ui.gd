@@ -13,3 +13,4 @@ func _on_play_button_click():
 	
 func _on_setting_button_click():
 	UIManagerCanvas.show_ui(UIManager.UI_NAMES.SettingUI);
+

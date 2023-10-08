@@ -64,3 +64,4 @@ func _on_lang_change(index: int):
 
 func _on_close_click():
 	UIManagerCanvas.hide_ui(UIManager.UI_NAMES.SettingUI);
+

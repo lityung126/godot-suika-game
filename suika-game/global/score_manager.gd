@@ -13,3 +13,13 @@ func add_score(merge_name : String):
 func clear_score():
 	current_score = 0;
 	event_on_score_update.emit()
+
+func get_top_score_string() -> String:
+	if GameManager.save_local.top_score.score == -1:
+		return "-"
+	else :
+		return str(GameManager.save_local.top_score.score);
+	
+
+func get_top_score() -> int:
+	return GameManager.save_local.top_score.score;

@@ -58,8 +58,8 @@ position = Vector2(640, 360)
 position = Vector2(0, 72.0814)
 
 [node name="left_CollisionShape2D" type="CollisionShape2D" parent="Container/StaticBody2D"]
-position = Vector2(-250, -120)
-scale = Vector2(7.273, 800)
+position = Vector2(-400, -119.081)
+scale = Vector2(303.345, 800)
 shape = SubResource("RectangleShape2D_w3bwn")
 
 [node name="left_wall" type="Sprite2D" parent="Container/StaticBody2D"]
@@ -68,8 +68,8 @@ scale = Vector2(5, 550)
 texture = ExtResource("5_tqjfx")
 
 [node name="right_CollisionShape2D" type="CollisionShape2D" parent="Container/StaticBody2D"]
-position = Vector2(250, -120)
-scale = Vector2(7.273, 800)
+position = Vector2(400, -120)
+scale = Vector2(304.15, 800)
 shape = SubResource("RectangleShape2D_w3bwn")
 
 [node name="right_wall" type="Sprite2D" parent="Container/StaticBody2D"]
@@ -78,11 +78,13 @@ scale = Vector2(5, 550)
 texture = ExtResource("5_tqjfx")
 
 [node name="bot_CollisionShape2D" type="CollisionShape2D" parent="Container/StaticBody2D"]
-position = Vector2(0, 248)
-scale = Vector2(500, 5)
+position = Vector2(0, 298)
+scale = Vector2(500, 104.615)
 shape = SubResource("RectangleShape2D_rk3a4")
 
-[node name="bot_wall" type="Sprite2D" parent="Container/StaticBody2D/bot_CollisionShape2D"]
+[node name="bot_wall" type="Sprite2D" parent="Container/StaticBody2D"]
+position = Vector2(0, 248)
+scale = Vector2(500, 5)
 texture = ExtResource("5_tqjfx")
 
 [node name="Camera2D" type="Camera2D" parent="."]

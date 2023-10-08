@@ -24,6 +24,7 @@ ResourceManager="*res://global/resource_manager.gd"
 AudioManager="*res://global/audio_manager.gd"
 ScoreManager="*res://global/score_manager.gd"
 UIManagerCanvas="*res://global/ui_manager_canvas.tscn"
+PlayerPrefs="*res://addons/PlayerPrefs/PlayerPrefs.tscn"
 
 [display]
 
@@ -33,7 +34,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/coi_serviceworker/plugin.cfg")
+enabled=PackedStringArray("res://addons/PlayerPrefs/plugin.cfg", "res://addons/coi_serviceworker/plugin.cfg")
 
 [gui]
 
