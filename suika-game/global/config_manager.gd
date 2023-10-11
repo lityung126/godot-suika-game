@@ -10,59 +10,11 @@ var player_config : PlayerConfig;
 
 func _ready():
 	print("1. 初始化表格")
-	if GameManager.os_web:
-		config_file.parse('''
-[player]
-player_image_path = "streaming_data/sprites/player/player.png"
-offset_x = 48
-offset_y = -28
+	var file = FileAccess.open("streaming_data/settings/config.ini", FileAccess.READ);
+	var content = file.get_as_text();
+	config_file.parse(content)
+	file.close();
 
-;掉落道具貼圖, 順序代表成長方式
-;名字=路徑
-[drops]
-drop_1="streaming_data/sprites/animals/1.png"
-drop_2="streaming_data/sprites/animals/2.png"
-drop_3="streaming_data/sprites/animals/3.png"
-drop_4="streaming_data/sprites/animals/4.png"
-drop_5="streaming_data/sprites/animals/5.png"
-drop_6="streaming_data/sprites/animals/6.png"
-drop_7="streaming_data/sprites/animals/7.png"
-
-;合併時會獲得的分數
-; 1 3 6 10 15 21 28 36 45 55
-[score]
-drop_1=1
-drop_2=3
-drop_3=6
-drop_4=10
-drop_5=15
-drop_6=21
-
-;掉落機率
-[drop_rate]
-drop_1=0.8
-drop_2=0.15
-drop_3=0.05
-
-[bgm]
-maou_bgm_piano01="streaming_data/audio/bgm/maou_bgm_piano01.mp3"
-maou_bgm_piano02="streaming_data/audio/bgm/maou_bgm_piano02.mp3"
-maou_bgm_piano03="streaming_data/audio/bgm/maou_bgm_piano03.mp3"
-maou_bgm_piano04="streaming_data/audio/bgm/maou_bgm_piano04.mp3"
-maou_bgm_piano05="streaming_data/audio/bgm/maou_bgm_piano05.mp3"
-maou_bgm_piano06="streaming_data/audio/bgm/maou_bgm_piano06.mp3"
-
-[sound]
-merge_sound="streaming_data/audio/sound/soundeffect_lab_confirm_42.mp3"
-
-[ui]
-menu_background="streaming_data/sprites/background/menu.jpg"
-background="streaming_data/sprites/background/menu.jpg"
-
-''')
-	else :
-		config_file.load("streaming_data/settings/config.ini")
-	
 	_init_player_section();
 	_init_drops_section();
 	_init_drop_rate_section();
