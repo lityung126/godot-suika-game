@@ -3,6 +3,7 @@ extends Control
 @onready var play_button = $ColorRect/PlayButton
 @onready var setting_button = $ColorRect/SettingButton
 @onready var texture_rect = $ColorRect/TextureRect
+@onready var name_line_edit = $ColorRect/NameLineEdit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,7 @@ func _ready():
 	_load_bg();
 
 func _on_play_button_click():
+	GameManager.set_player_name(name_line_edit.text);
 	get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
 	
 func _on_setting_button_click():

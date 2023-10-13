@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://exlsckiu372"]
+[gd_scene load_steps=10 format=3 uid="uid://exlsckiu372"]
 
 [ext_resource type="Script" path="res://global/ui_manager.gd" id="1_d7l5o"]
 [ext_resource type="Script" path="res://scripts/ui/game_view_ui.gd" id="1_ivh0y"]
 [ext_resource type="Texture2D" uid="uid://dy81veycgduwd" path="res://assets/sprites/blue.svg" id="2_6d5pd"]
 [ext_resource type="Script" path="res://scripts/ui/menu_ui.gd" id="2_mub81"]
 [ext_resource type="Script" path="res://scripts/ui/setting_ui.gd" id="3_nbdfk"]
+[ext_resource type="Script" path="res://global/suika_leaderboard_ui.gd" id="5_grutn"]
 [ext_resource type="Script" path="res://scripts/ui/game_over_ui.gd" id="6_2ync4"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_umli1"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_8nfys"]
 
@@ -19,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MenuUI" type="Control" parent="UIRoot"]
 visible = false
@@ -74,8 +78,20 @@ offset_bottom = -202.0
 grow_vertical = 0
 text = "SETTING"
 
+[node name="NameLineEdit" type="LineEdit" parent="UIRoot/MenuUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 94.0
+offset_top = -457.0
+offset_right = 332.0
+offset_bottom = -396.0
+grow_vertical = 0
+placeholder_text = "name for leaderboard"
+max_length = 10
+
 [node name="GameViewUI" type="Control" parent="UIRoot"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -195,7 +211,109 @@ grow_vertical = 2
 expand_mode = 5
 stretch_mode = 3
 
+[node name="Leaderboard" type="Control" parent="UIRoot/GameViewUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 385.0
+offset_right = -944.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_grutn")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/GameViewUI/Leaderboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 38.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/GameViewUI/Leaderboard/ColorRect"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 27.0
+color = Color(0.313726, 0.313726, 0.313726, 1)
+
+[node name="TitleHBoxContainer" type="HBoxContainer" parent="UIRoot/GameViewUI/Leaderboard/ColorRect"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 27.0
+theme_override_constants/separation = 0
+
+[node name="RankTitleLabel" type="Label" parent="UIRoot/GameViewUI/Leaderboard/ColorRect/TitleHBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "RANK"
+horizontal_alignment = 1
+
+[node name="NameTitleLabel" type="Label" parent="UIRoot/GameViewUI/Leaderboard/ColorRect/TitleHBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+
+[node name="ScoreTitleLabel" type="Label" parent="UIRoot/GameViewUI/Leaderboard/ColorRect/TitleHBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Score"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/GameViewUI/Leaderboard/ColorRect"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TodayButton" type="Button" parent="UIRoot/GameViewUI/Leaderboard"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 150.0
+offset_bottom = 38.0
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_umli1")
+text = "Today"
+
+[node name="OverallButton" type="Button" parent="UIRoot/GameViewUI/Leaderboard"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 3.0
+offset_right = 300.0
+offset_bottom = 38.0
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_umli1")
+text = "Overall"
+
+[node name="LoadingControl" type="Control" parent="UIRoot/GameViewUI/Leaderboard"]
+visible = false
+anchors_preset = 0
+offset_top = 4.0
+offset_right = 301.0
+offset_bottom = 337.0
+
+[node name="LoadingLabel" type="Label" parent="UIRoot/GameViewUI/Leaderboard/LoadingControl"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 172.0
+offset_right = 174.0
+offset_bottom = 199.0
+text = "Loading..."
+
 [node name="SettingUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

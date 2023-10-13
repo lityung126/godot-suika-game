@@ -10,7 +10,11 @@ var player_config : PlayerConfig;
 
 func _ready():
 	print("1. 初始化表格")
-	var file = FileAccess.open("streaming_data/settings/config.ini", FileAccess.READ);
+	var path = "streaming_data/settings/config.ini";
+	if GameManager.os_web:
+		path = "res://" + path
+		
+	var file = FileAccess.open(path, FileAccess.READ);
 	var content = file.get_as_text();
 	config_file.parse(content)
 	file.close();

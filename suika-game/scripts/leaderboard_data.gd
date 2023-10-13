@@ -10,4 +10,3 @@ func _init(_score):
 
 func to_date_time():
 	return Time.get_datetime_dict_from_unix_time(create_time_unix_float)
-

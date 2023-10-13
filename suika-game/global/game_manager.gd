@@ -5,17 +5,55 @@ var dead_line_y : float
 var save_local : SaveLocal;
 var os_web : bool = false
 
+var player_name : String;
+
 var SAVEPATH = "user://localsave.save"
 signal assistive_line_changed
+
+var can_use_leaderboard : bool = false;
 
 func _ready():
 	match OS.get_name():
 		"Web":
 			print ("running on web")
 			os_web = true
+	
+	
+	var path = "streaming_data/settings/secret.ini";
+	if GameManager.os_web:
+		path = "res://" + path
+	var file = FileAccess.open(path, FileAccess.READ);
+	
+	if file == null:
+		printerr("read secret.ini fail")
+	else :
+		var text = file.get_as_text()
+		print("read secret.ini success")
+		var secret_config_file = ConfigFile.new();
+		secret_config_file.parse(text)
+		ini_leaderboard(
+			secret_config_file.get_value("silentwolf", "api_key", ""),
+			secret_config_file.get_value("silentwolf", "game_id", "")
+		)
+		
+	
+	
 	save_local = SaveLocal.new();
 	save_local.load();
 	
+	
+func ini_leaderboard(api_key : String, game_id : String):
+	SilentWolf.configure({
+		"api_key": api_key,
+		"game_id": game_id,
+		"log_level": 1
+  	})
+	SilentWolf.configure_scores({
+		"open_scene_on_close": "res://scenes/game_scene.tscn"
+	})
+	if not api_key.is_empty() && not game_id.is_empty():
+		can_use_leaderboard = true
+
 func set_dead_line_y(y : float):
 	dead_line_y = y;
 	
@@ -41,4 +79,10 @@ func set_assistive_line_enable(enable : bool):
 	assistive_line_enable = enable
 	assistive_line_changed.emit()
 	pass
+
+func set_player_name(_player_name : String):
+	if not _player_name == "":
+		player_name = _player_name;
+	else :
+		player_name = "NoNamed"
 	

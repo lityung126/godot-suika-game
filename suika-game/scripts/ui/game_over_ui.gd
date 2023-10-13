@@ -28,3 +28,7 @@ func on_enable():
 		bestscore_label_value.text =  str(topScore) + "->" + str(ScoreManager.current_score)
 	else : 
 		bestscore_label_value.text =  str(topScore)
+	if GameManager.can_use_leaderboard:
+		var sw_result: Dictionary = await SilentWolf.Scores.save_score(GameManager.player_name, ScoreManager.current_score).sw_save_score_complete
+		var daily_sw_result: Dictionary = await SilentWolf.Scores.save_score(GameManager.player_name, ScoreManager.current_score, "daily").sw_save_score_complete
+		print("Score persisted successfully: " + str(sw_result.score_id))
