@@ -88,6 +88,8 @@ offset_top = -457.0
 offset_right = 332.0
 offset_bottom = -396.0
 grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
 placeholder_text = "name for leaderboard"
 max_length = 10
 
@@ -527,7 +529,21 @@ popup/item_1/id = 1
 popup/item_2/text = "日本語"
 popup/item_2/id = 2
 
+[node name="VersionLabel" type="Label" parent="UIRoot/SettingUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+horizontal_alignment = 2
+
 [node name="GameOverUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

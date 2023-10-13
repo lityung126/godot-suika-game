@@ -12,6 +12,8 @@ class_name SettingUI
 @onready var close_button = $ColorRect/CloseButton
 @onready var on_check_box = $ColorRect/VBoxContainer/Game_VBox/Label/OnCheckBox
 @onready var off_check_box = $ColorRect/VBoxContainer/Game_VBox/Label/OffCheckBox
+@onready var version_label = $ColorRect/VersionLabel
+
 
 
 func _ready():
@@ -31,6 +33,7 @@ func _ready():
 	
 	on_check_box.set_pressed_no_signal(GameManager.assistive_line_enable)
 	off_check_box.set_pressed_no_signal(not GameManager.assistive_line_enable)
+	version_label.text = VersionHelper.get_version();
 
 func _on_check_box_change(enabled : bool):
 	GameManager.set_assistive_line_enable(enabled)

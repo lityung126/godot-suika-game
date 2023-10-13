@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8jxa7e6ifj21"]
+
+[ext_resource type="Script" path="res://addons/version_helper/version_helper.gd" id="1_mfuei"]
+
+[node name="version_helper" type="Node"]
+script = ExtResource("1_mfuei")

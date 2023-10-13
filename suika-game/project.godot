@@ -26,6 +26,7 @@ ScoreManager="*res://global/score_manager.gd"
 UIManagerCanvas="*res://global/ui_manager_canvas.tscn"
 PlayerPrefs="*res://addons/PlayerPrefs/PlayerPrefs.tscn"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+VersionHelper="*res://addons/version_helper/version_helper.tscn"
 
 [display]
 
@@ -35,7 +36,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/PlayerPrefs/plugin.cfg", "res://addons/coi_serviceworker/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/PlayerPrefs/plugin.cfg", "res://addons/coi_serviceworker/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/version_helper/plugin.cfg")
 
 [gui]
 
