@@ -3,6 +3,8 @@ extends Control
 @onready var score_label_value = $ColorRect/SCORELabelValue
 @onready var bestscore_label_value = $ColorRect/BESTSCORELabelValue
 @onready var play_again_button = $ColorRect/PlayAgainButton
+@onready var wait_label = $ColorRect/WaitLabel
+
 
 func _ready():
 	play_again_button.button_up.connect(_on_play_again_click)
@@ -29,6 +31,13 @@ func on_enable():
 	else : 
 		bestscore_label_value.text =  str(topScore)
 	if GameManager.can_use_leaderboard:
+		play_again_button.visible = false
+		wait_label.visible = true
 		var sw_result: Dictionary = await SilentWolf.Scores.save_score(GameManager.player_name, ScoreManager.current_score).sw_save_score_complete
 		var daily_sw_result: Dictionary = await SilentWolf.Scores.save_score(GameManager.player_name, ScoreManager.current_score, "daily").sw_save_score_complete
+		play_again_button.visible = true
+		wait_label.visible = false
 		print("Score persisted successfully: " + str(sw_result.score_id))
+	else :
+		play_again_button.visible = true
+		wait_label.visible = false

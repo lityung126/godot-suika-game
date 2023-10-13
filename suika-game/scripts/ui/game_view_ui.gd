@@ -20,7 +20,6 @@ func _ready():
 	DropManager.event_on_next_drop_item_update.connect(updateTextureRectCallable);
 	ScoreManager.event_on_score_update.connect(_update_score_text_callable);
 
-
 func _exit_tree():
 	DropManager.event_on_next_drop_item_update.disconnect(updateTextureRectCallable);
 	ScoreManager.event_on_score_update.disconnect(_update_score_text_callable);

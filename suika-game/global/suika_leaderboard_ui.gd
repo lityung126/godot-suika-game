@@ -8,7 +8,6 @@ var leaderboard_item_prefab = preload("res://scenes/leaderboard_item.tscn")
 @onready var loading_control = $LoadingControl
 
 var is_loading : bool = false
-
 var leaderboard_items = [];
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +21,7 @@ func on_enable():
 		_on_today_click()
 	else :
 		self.visible = false
-		
+	
 
 func _on_today_click():
 	get_leaderboard("daily")
