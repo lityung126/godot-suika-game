@@ -27,7 +27,7 @@ scale = Vector2(450, 5)
 texture = ExtResource("4_vdkhh")
 
 [node name="deadline" type="Sprite2D" parent="."]
-position = Vector2(645, 105)
+position = Vector2(646, 84.129)
 texture = ExtResource("4_vdkhh")
 script = ExtResource("5_8euk6")
 
