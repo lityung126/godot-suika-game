@@ -9,6 +9,11 @@ var is_first_collide :bool;
 func _ready():
 	self.body_entered.connect(_on_body_entered)
 	
+	var tween = get_tree().create_tween()
+	self.scale = Vector2.ZERO
+	tween.tween_property(self, "scale", Vector2(1, 1),0.1).set_trans(Tween.TRANS_LINEAR)
+	# tween.tween_callback($Sprite.queue_free)
+	
 func _process(_delta):
 	if is_first_collide : 
 		if position.y < GameManager.dead_line_y:
