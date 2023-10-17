@@ -6,14 +6,29 @@ var index : int
 var is_combining : bool
 var is_first_collide :bool;
 
+var my_scale = 0.0;
+var scale_timer = 0.0;
+var SCALE_TIME = 0.1;
+
+
 func _ready():
 	self.body_entered.connect(_on_body_entered)
 	
 	var tween = get_tree().create_tween()
 	self.scale = Vector2.ZERO
-	tween.tween_property(self, "scale", Vector2(1, 1),0.1).set_trans(Tween.TRANS_LINEAR)
+	#tween.tween_property(self, "scale", Vector2(1, 1),0.1).set_trans(Tween.TRANS_LINEAR)
 	# tween.tween_callback($Sprite.queue_free)
+
+func _physics_process(delta):
+	if my_scale >= 1 :
+		return;
+	my_scale += delta / SCALE_TIME
+	if my_scale > 1 :
+		my_scale = 1;
+	self.scale = Vector2.ONE * my_scale;
+		
 	
+
 func _process(_delta):
 	if is_first_collide : 
 		if position.y < GameManager.dead_line_y:
@@ -48,6 +63,7 @@ func _on_body_entered(body: Node):
 		return
 	if dropItem.is_combining == true:
 		return
+	
 	self.is_combining = true;
 	dropItem.is_combining = true;
 	
@@ -58,7 +74,6 @@ func _on_body_entered(body: Node):
 	inst.position = (self.position + dropItem.position) / 2
 	ScoreManager.add_score(drop_name);
 	AudioManager.play_merge_sound();
-	
 	
 	dropItem.hide();
 	dropItem.queue_free()
