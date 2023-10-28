@@ -27,12 +27,16 @@ func set_fx_volume(value :float):
 
 func _ready():
 	
-	
 	bgm_audio_player = _generate_idle_audio_stream_player()
 	bgm_audio_player.name = "bgm_audio_player"
 	bgm_audio_player.set_volume_db(linear_to_db(master_volume * bgm_volume))
-	
+	init_from_config()
+
+func init_from_config():
+	# load sound in cache
 	for bgm_config in ConfigManager.bgm_section_array:
+		bgm_list.clear()
+		
 		var file_path = bgm_config.path;
 		var stream = _generate_audio_stream(file_path);
 		if not stream == null:
@@ -41,7 +45,7 @@ func _ready():
 	for sound_config in ConfigManager.sound_section_array:
 		if sound_config.name == "merge_sound":
 			merge_sound = _generate_audio_stream(sound_config.path)
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if bgm_list.size() > 0:

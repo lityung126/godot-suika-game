@@ -10,6 +10,9 @@ signal event_on_next_drop_item_update();
 
 func _ready():
 	print("2. 初始化 掉落管理")
+	init_from_config();
+
+func init_from_config():
 	drop_item_config_array = ConfigManager.drop_item_config_array
 	drop_rate_config_array = ConfigManager.drop_rate_config_array
 	next_drop_item_name = _random_next_drop_item_name();

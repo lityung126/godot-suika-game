@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cacid26rffgmv"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_aa6dd"]
+resource_local_to_scene = false
+
+[node name="mod_item" type="Button"]
+custom_minimum_size = Vector2(1280, 100)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_aa6dd")
+text = "123456"

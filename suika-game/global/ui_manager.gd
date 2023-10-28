@@ -1,7 +1,7 @@
 extends CanvasLayer
 class_name UIManager
 
-enum UI_NAMES {GameViewUI, SettingUI, GameOverUI, MenuUI }
+enum UI_NAMES {GameViewUI, SettingUI, GameOverUI, MenuUI, ModUI, EditModUI}
 
 var _ui_dict = {}
 
@@ -11,12 +11,15 @@ func _ready():
 	_ui_dict[UI_NAMES.SettingUI] = $UIRoot/SettingUI
 	_ui_dict[UI_NAMES.GameOverUI] = $UIRoot/GameOverUI
 	_ui_dict[UI_NAMES.MenuUI] = $UIRoot/MenuUI
+	_ui_dict[UI_NAMES.ModUI] = $UIRoot/ModUI
+	_ui_dict[UI_NAMES.EditModUI] = $UIRoot/EditModUI
 
 func show_ui(ui_name : UI_NAMES):
 	_ui_dict[ui_name].visible = true
 	if _ui_dict[ui_name].has_method("on_enable"):
 		_ui_dict[ui_name].on_enable();
 	_update_ui_lock()
+	return _ui_dict[ui_name]
 
 func hide_ui(ui_name : UI_NAMES):
 	_ui_dict[ui_name].visible = false

@@ -1,12 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://exlsckiu372"]
+[gd_scene load_steps=15 format=3 uid="uid://chkgs82h7wms0"]
 
 [ext_resource type="Script" path="res://global/ui_manager.gd" id="1_d7l5o"]
 [ext_resource type="Script" path="res://scripts/ui/game_view_ui.gd" id="1_ivh0y"]
 [ext_resource type="Texture2D" uid="uid://dy81veycgduwd" path="res://assets/sprites/blue.svg" id="2_6d5pd"]
 [ext_resource type="Script" path="res://scripts/ui/menu_ui.gd" id="2_mub81"]
 [ext_resource type="Script" path="res://scripts/ui/setting_ui.gd" id="3_nbdfk"]
-[ext_resource type="Script" path="res://global/suika_leaderboard_ui.gd" id="5_grutn"]
+[ext_resource type="Script" path="res://scripts/ui/suika_leaderboard_ui.gd" id="5_udvdg"]
 [ext_resource type="Script" path="res://scripts/ui/game_over_ui.gd" id="6_2ync4"]
+[ext_resource type="Script" path="res://scripts/ui/mod_ui.gd" id="8_rbxhg"]
+[ext_resource type="Script" path="res://scripts/ui/edit_mod_ui.gd" id="9_luhi8"]
+[ext_resource type="Script" path="res://scripts/ui/edit_mod_player_section.gd" id="10_8y0af"]
+[ext_resource type="Script" path="res://scripts/ui/edit_mod_drop_section.gd" id="11_onp5m"]
+[ext_resource type="Script" path="res://scripts/ui/select_drop_item_control.gd" id="12_monhs"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_umli1"]
 
@@ -25,7 +30,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="MenuUI" type="Control" parent="UIRoot"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,6 +81,18 @@ offset_right = 332.135
 offset_bottom = -202.0
 grow_vertical = 0
 text = "SETTING"
+
+[node name="ModButton" type="Button" parent="UIRoot/MenuUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = -176.0
+offset_right = 328.0
+offset_bottom = -109.0
+grow_vertical = 0
+text = "MOD"
 
 [node name="NameLineEdit" type="LineEdit" parent="UIRoot/MenuUI/ColorRect"]
 layout_mode = 1
@@ -225,7 +241,7 @@ offset_right = -944.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_grutn")
+script = ExtResource("5_udvdg")
 
 [node name="ColorRect" type="ColorRect" parent="UIRoot/GameViewUI/Leaderboard"]
 layout_mode = 1
@@ -656,3 +672,575 @@ offset_right = 53.0
 offset_bottom = 264.935
 grow_horizontal = 2
 text = "PLAY_AGAIN"
+
+[node name="ModUI" type="Control" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_rbxhg")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/ModUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="CloseButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_bottom = 69.0
+grow_horizontal = 0
+text = "X"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UIRoot/ModUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -618.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/ModUI/ColorRect/ScrollContainer"]
+custom_minimum_size = Vector2(22.64, 38.255)
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="DeleteButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 850.0
+offset_top = 643.0
+offset_right = 950.0
+offset_bottom = 720.0
+text = "DELETE
+"
+
+[node name="CreateButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 960.0
+offset_top = 643.0
+offset_right = 1060.0
+offset_bottom = 720.0
+text = "CREATE"
+
+[node name="EditButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 1070.0
+offset_top = 643.0
+offset_right = 1170.0
+offset_bottom = 720.0
+text = "EDIT"
+
+[node name="ActiveButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 1180.0
+offset_top = 643.0
+offset_right = 1280.0
+offset_bottom = 720.0
+text = "ACTIVE"
+
+[node name="ModLabel" type="Label" parent="UIRoot/ModUI/ColorRect"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 10.0
+offset_right = 364.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 40
+text = "Current Mod:"
+
+[node name="CurrentModLabel" type="Label" parent="UIRoot/ModUI/ColorRect"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 9.0
+offset_right = 625.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 40
+
+[node name="EditModUI" type="Control" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_luhi8")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/EditModUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="CloseButton" type="Button" parent="UIRoot/EditModUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_bottom = 69.0
+grow_horizontal = 0
+text = "X"
+
+[node name="SaveButton" type="Button" parent="UIRoot/EditModUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -844.0
+offset_top = 3.0
+offset_right = -748.0
+offset_bottom = 72.0
+grow_horizontal = 0
+text = "SAVE"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UIRoot/EditModUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer"]
+custom_minimum_size = Vector2(1280, 0)
+layout_mode = 2
+
+[node name="PlayerSectionVBoxContainer" type="VBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("10_8y0af")
+
+[node name="Title" type="ColorRect" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="Label" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "PLAYER"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerTexture" type="TextureRect" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "EDIT"
+
+[node name="Path" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "PATH"
+
+[node name="SelectPlayerFileDialog" type="FileDialog" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/HBoxContainer"]
+title = "Select A Player Image"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+mode_overrides_title = false
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpg")
+
+[node name="DropSectionVBoxContainer" type="VBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("11_onp5m")
+
+[node name="Title" type="ColorRect" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="Label" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Drops
+"
+vertical_alignment = 1
+
+[node name="AddDropButton" type="Button" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer/Title"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = -1.0
+offset_right = 151.0
+offset_bottom = 52.0
+text = "+"
+
+[node name="EditDropItemFileDialog" type="FileDialog" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer"]
+title = "Select A Player Image"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+mode_overrides_title = false
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpg")
+
+[node name="SelectDropItemControl" type="Control" parent="UIRoot/EditModUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_monhs")
+
+[node name="SelectDropItemFileDialog" type="FileDialog" parent="UIRoot/EditModUI/SelectDropItemControl"]
+title = "Select A Player Image"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+mode_overrides_title = false
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpg")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/EditModUI/SelectDropItemControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -219.0
+offset_right = 242.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "Create Drop Item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectDropTextureButton" type="Button" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 277.0
+offset_right = 155.0
+offset_bottom = 310.0
+text = "Select Texture"
+
+[node name="CloseButton" type="Button" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_bottom = 33.0
+grow_horizontal = 0
+text = "X"
+
+[node name="TextureRect" type="TextureRect" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 75.0
+offset_right = 190.0
+offset_bottom = 256.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameTitle" type="Label" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.564
+anchor_top = 0.125316
+anchor_right = 0.668
+anchor_bottom = 0.236709
+offset_left = -11.0
+offset_top = 36.5
+offset_right = -11.0
+offset_bottom = 36.5
+grow_horizontal = 0
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLineEdit" type="LineEdit" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.684
+anchor_top = 0.14557
+anchor_right = 0.98
+anchor_bottom = 0.231646
+offset_left = -11.0
+offset_top = 36.5
+offset_right = -11.0
+offset_bottom = 36.5
+grow_horizontal = 0
+
+[node name="ScoreTitle" type="Label" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.564
+anchor_top = 0.125316
+anchor_right = 0.668
+anchor_bottom = 0.236709
+offset_left = -14.0
+offset_top = 96.5
+offset_right = -14.0
+offset_bottom = 96.5
+grow_horizontal = 0
+text = "Score
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreSpinBox" type="SpinBox" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 156.0
+offset_right = 475.0
+offset_bottom = 188.0
+
+[node name="DropRateTitle" type="Label" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.564
+anchor_top = 0.302532
+anchor_right = 0.668
+anchor_bottom = 0.413924
+offset_left = -29.0
+offset_top = 91.0
+offset_right = -10.0
+offset_bottom = 91.0
+grow_horizontal = 0
+text = "DropRate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DropRateSpinBox" type="SpinBox" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 220.0
+offset_right = 478.0
+offset_bottom = 252.0
+max_value = 1.0
+step = 0.01
+
+[node name="CreateButton" type="Button" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.5
+offset_top = -50.0
+offset_right = 56.5
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CREATE"
+
+[node name="EditDropItemControl" type="Control" parent="UIRoot/EditModUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_monhs")
+
+[node name="SelectDropItemFileDialog" type="FileDialog" parent="UIRoot/EditModUI/EditDropItemControl"]
+title = "Select A Player Image"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+mode_overrides_title = false
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpg")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/EditModUI/EditDropItemControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -219.0
+offset_right = 242.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "Create Drop Item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectDropTextureButton" type="Button" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 277.0
+offset_right = 155.0
+offset_bottom = 310.0
+text = "Select Texture"
+
+[node name="CloseButton" type="Button" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_bottom = 33.0
+grow_horizontal = 0
+text = "X"
+
+[node name="TextureRect" type="TextureRect" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 75.0
+offset_right = 190.0
+offset_bottom = 256.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameTitle" type="Label" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.564
+anchor_top = 0.125316
+anchor_right = 0.668
+anchor_bottom = 0.236709
+offset_left = -11.0
+offset_top = 36.5
+offset_right = -11.0
+offset_bottom = 36.5
+grow_horizontal = 0
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLineEdit" type="LineEdit" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.684
+anchor_top = 0.14557
+anchor_right = 0.98
+anchor_bottom = 0.231646
+offset_left = -11.0
+offset_top = 36.5
+offset_right = -11.0
+offset_bottom = 36.5
+grow_horizontal = 0
+editable = false
+
+[node name="ScoreTitle" type="Label" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.564
+anchor_top = 0.125316
+anchor_right = 0.668
+anchor_bottom = 0.236709
+offset_left = -14.0
+offset_top = 96.5
+offset_right = -14.0
+offset_bottom = 96.5
+grow_horizontal = 0
+text = "Score
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreSpinBox" type="SpinBox" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 156.0
+offset_right = 475.0
+offset_bottom = 188.0
+
+[node name="DropRateTitle" type="Label" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.564
+anchor_top = 0.302532
+anchor_right = 0.668
+anchor_bottom = 0.413924
+offset_left = -29.0
+offset_top = 91.0
+offset_right = -10.0
+offset_bottom = 91.0
+grow_horizontal = 0
+text = "DropRate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DropRateSpinBox" type="SpinBox" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 220.0
+offset_right = 478.0
+offset_bottom = 252.0
+max_value = 1.0
+step = 0.01
+
+[node name="CreateButton" type="Button" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.5
+offset_top = -50.0
+offset_right = 56.5
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CREATE"

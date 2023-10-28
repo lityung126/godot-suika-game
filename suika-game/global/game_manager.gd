@@ -12,13 +12,31 @@ signal assistive_line_changed
 
 var can_use_leaderboard : bool = false;
 
+var _mod_name = "default"
+var mod_name : set=_update_mod, get=_get_mod_name
+
 func _ready():
 	match OS.get_name():
 		"Web":
 			print ("running on web")
 			os_web = true
 	
+	_load_leaderboard();
 	
+	save_local = SaveLocal.new();
+	save_local.load();
+
+func _update_mod(_mod_name):
+	self._mod_name = _mod_name
+	ConfigManager.load_config()
+	AudioManager.init_from_config()
+	DropManager.init_from_config()
+	
+
+func _get_mod_name():
+	return _mod_name
+
+func _load_leaderboard():
 	var path = "streaming_data/settings/secret.ini";
 	if GameManager.os_web:
 		path = "res://" + path
@@ -35,12 +53,7 @@ func _ready():
 			secret_config_file.get_value("silentwolf", "api_key", ""),
 			secret_config_file.get_value("silentwolf", "game_id", "")
 		)
-		
-	
-	
-	save_local = SaveLocal.new();
-	save_local.load();
-	
+	pass
 	
 func ini_leaderboard(api_key : String, game_id : String):
 	SilentWolf.configure({

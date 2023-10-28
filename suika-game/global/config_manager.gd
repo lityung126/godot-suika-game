@@ -10,10 +10,20 @@ var player_config : PlayerConfig;
 
 func _ready():
 	print("1. 初始化表格")
-	var path = "streaming_data/settings/config.ini";
+	load_config()
+
+func load_config():
+	drop_item_config_array.clear()
+	drop_rate_config_array.clear()
+	score_section_array.clear()
+	bgm_section_array.clear()
+	sound_section_array.clear()
+	config_file.clear()
+	var path = "streaming_data/mods/" + GameManager.mod_name + ".ini";
 	if GameManager.os_web:
 		path = "res://" + path
 		
+	print("load file : " + path)
 	var file = FileAccess.open(path, FileAccess.READ);
 	var content = file.get_as_text();
 	config_file.parse(content)

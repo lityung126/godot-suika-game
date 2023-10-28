@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://jywxlhij03hn"]
+
+[ext_resource type="Script" path="res://scripts/ui/edit_mod_ui_drop_item_h_box_container.gd" id="1_fk15k"]
+[ext_resource type="Theme" uid="uid://cic3gmx2k3m5w" path="res://new_theme.tres" id="1_vgob2"]
+
+[node name="edit_mod_ui_drop_item_h_box_container" type="PanelContainer"]
+theme = ExtResource("1_vgob2")
+script = ExtResource("1_fk15k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PlayerTexture" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="NameTitle" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="ScoreTitle" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Score
+"
+
+[node name="ScoreLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="DropRateTitle" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "DropRate
+"
+
+[node name="DropRateLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="ButtonVBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer/ButtonVBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Delete"
+
+[node name="EditButton" type="Button" parent="HBoxContainer/ButtonVBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Edit"
