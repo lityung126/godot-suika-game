@@ -22,9 +22,7 @@ func _ready():
 			os_web = true
 	
 	_load_leaderboard();
-	
 	save_local = SaveLocal.new();
-	
 
 func _update_mod(_mod_name):
 	self._mod_name = _mod_name

@@ -8,22 +8,28 @@ var bgm_list : Array = []
 
 var rng = RandomNumberGenerator.new()
 
-var master_volume : float = 0.5;
-var bgm_volume : float = 0.5;
-var fx_volume : float = 0.5;
+var master_volume : float : set=set_master_volume, get=get_master_volume;
+var bgm_volume : float: set=set_bgm_volume, get=get_bgm_volume;
+var fx_volume : float: set=set_fx_volume, get=get_fx_volume;
 
 func set_master_volume(value :float):
-	master_volume = value
+	GameManager.save_local.master_volume = value
 	bgm_audio_player.set_volume_db(linear_to_db(master_volume * bgm_volume))
-
+	
+	
+func get_master_volume():
+	return GameManager.save_local.master_volume
 	
 func set_bgm_volume(value :float):
-	bgm_volume = value
+	GameManager.save_local.bgm_volume = value
 	bgm_audio_player.set_volume_db(linear_to_db(master_volume * bgm_volume))
-	
+func get_bgm_volume():
+	return GameManager.save_local.bgm_volume
 	
 func set_fx_volume(value :float):
-	fx_volume = value
+	GameManager.save_local.fx_volume = value
+func get_fx_volume():
+	return GameManager.save_local.fx_volume
 
 func _ready():
 	
