@@ -6,7 +6,6 @@ extends Control
 @onready var name_line_edit = $ColorRect/NameLineEdit
 @onready var mod_button = $ColorRect/ModButton
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	play_button.button_up.connect(_on_play_button_click)
@@ -15,8 +14,10 @@ func _ready():
 	
 	mod_button.visible = not GameManager.os_web
 	
-	
 	_load_bg();
+
+func on_enable():
+	name_line_edit.text = GameManager.save_local.player_name
 
 func _on_play_button_click():
 	GameManager.set_player_name(name_line_edit.text);

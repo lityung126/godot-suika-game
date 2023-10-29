@@ -26,5 +26,10 @@ func _set_fx_volume(value):
 	PlayerPrefs.set_pref("fx_volume", value)
 func _get_fx_volume():
 	return PlayerPrefs.get_pref("fx_volume", 0.5)
-	
 
+# 玩家名稱
+var player_name: String: get=_get_player_name, set=_set_player_name
+func _set_player_name(value):
+	PlayerPrefs.set_pref("player_name", value)
+func _get_player_name():
+	return PlayerPrefs.get_pref("player_name", "")

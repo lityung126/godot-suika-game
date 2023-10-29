@@ -91,6 +91,7 @@ func set_assistive_line_enable(enable : bool):
 	pass
 
 func set_player_name(_player_name : String):
+	save_local.player_name = _player_name
 	if not _player_name == "":
 		player_name = _player_name;
 	else :
