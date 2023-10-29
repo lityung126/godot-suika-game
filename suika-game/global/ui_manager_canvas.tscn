@@ -332,7 +332,6 @@ offset_bottom = 199.0
 text = "Loading..."
 
 [node name="SettingUI" type="Control" parent="UIRoot"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -545,6 +544,15 @@ popup/item_1/id = 1
 popup/item_2/text = "日本語"
 popup/item_2/id = 2
 
+[node name="GridContainer" type="GridContainer" parent="UIRoot/SettingUI/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 35
+columns = 3
+
+[node name="BackToTitleButton" type="Button" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "BACK_TO_TITLE"
+
 [node name="VersionLabel" type="Label" parent="UIRoot/SettingUI/ColorRect"]
 layout_mode = 1
 anchors_preset = 3
@@ -674,6 +682,7 @@ grow_horizontal = 2
 text = "PLAY_AGAIN"
 
 [node name="ModUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -772,6 +781,7 @@ offset_bottom = 85.0
 theme_override_font_sizes/font_size = 40
 
 [node name="EditModUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

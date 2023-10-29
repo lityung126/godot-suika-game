@@ -14,6 +14,7 @@ class_name SettingUI
 @onready var off_check_box = $ColorRect/VBoxContainer/Game_VBox/Label/OffCheckBox
 @onready var version_label = $ColorRect/VersionLabel
 
+@onready var back_to_title_button = $ColorRect/VBoxContainer/GridContainer/BackToTitleButton
 
 
 func _ready():
@@ -23,6 +24,9 @@ func _ready():
 	fx_sound_h_slider.value_changed.connect(_on_fx_sound_h_slider_change)
 	close_button.button_up.connect(_on_close_click)
 	on_check_box.toggled.connect(_on_check_box_change)
+	
+	back_to_title_button.button_up.connect(_on_back_to_title_button_click)
+	
 	
 	main_sound_h_slider.set_value_no_signal(AudioManager.master_volume)
 	main_sound_value.text = str(AudioManager.master_volume)
@@ -38,6 +42,10 @@ func _ready():
 func _on_check_box_change(enabled : bool):
 	GameManager.set_assistive_line_enable(enabled)
 	pass
+
+func on_enable():
+	back_to_title_button.visible = get_tree().current_scene.name == "game_scene";
+
 
 func _process(_delta):
 	if Input.is_action_just_released("ui_cancel"):
@@ -76,4 +84,9 @@ func _on_lang_change(index: int):
 
 func _on_close_click():
 	UIManagerCanvas.hide_ui(UIManager.UI_NAMES.SettingUI);
+
+func _on_back_to_title_button_click():
+	ScoreManager.clear_score();
+	get_tree().change_scene_to_file("res://scenes/menu_scene.tscn")
+
 
