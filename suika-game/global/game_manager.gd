@@ -24,7 +24,7 @@ func _ready():
 	_load_leaderboard();
 	
 	save_local = SaveLocal.new();
-	save_local.load();
+	
 
 func _update_mod(_mod_name):
 	self._mod_name = _mod_name
@@ -79,9 +79,8 @@ func game_over():
 	
 	if score > top_score :
 		# replace
-		var new_top_score = LeaderboardData.new(score);
-		save_local.top_score = new_top_score;
-		save_local.save()
+		save_local.top_score = score;
+
 	
 func restart_game():
 	ScoreManager.clear_score();

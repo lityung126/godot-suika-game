@@ -15,11 +15,11 @@ func clear_score():
 	event_on_score_update.emit()
 
 func get_top_score_string() -> String:
-	if GameManager.save_local.top_score.score == -1:
+	if GameManager.save_local.top_score == -1:
 		return "-"
 	else :
-		return str(GameManager.save_local.top_score.score);
+		return str(GameManager.save_local.top_score);
 	
 
 func get_top_score() -> int:
-	return GameManager.save_local.top_score.score;
+	return GameManager.save_local.top_score;
