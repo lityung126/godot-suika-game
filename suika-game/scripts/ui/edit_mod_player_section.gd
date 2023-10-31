@@ -32,5 +32,4 @@ func _on_player_image_file_selected(file_path : String):
 	path.text = file_path
 	player_texture.set_texture(ResourceManager.get_texture(file_path))
 	config_file.set_value("player", "player_image_path", file_path)
-	
-	pass
+

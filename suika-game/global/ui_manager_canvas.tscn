@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://chkgs82h7wms0"]
+[gd_scene load_steps=16 format=3 uid="uid://chkgs82h7wms0"]
 
 [ext_resource type="Script" path="res://global/ui_manager.gd" id="1_d7l5o"]
 [ext_resource type="Script" path="res://scripts/ui/game_view_ui.gd" id="1_ivh0y"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/ui/suika_leaderboard_ui.gd" id="5_udvdg"]
 [ext_resource type="Script" path="res://scripts/ui/game_over_ui.gd" id="6_2ync4"]
 [ext_resource type="Script" path="res://scripts/ui/mod_ui.gd" id="8_rbxhg"]
+[ext_resource type="Script" path="res://global/rename_ui.gd" id="9_3h0l4"]
 [ext_resource type="Script" path="res://scripts/ui/edit_mod_ui.gd" id="9_luhi8"]
 [ext_resource type="Script" path="res://scripts/ui/edit_mod_player_section.gd" id="10_8y0af"]
 [ext_resource type="Script" path="res://scripts/ui/edit_mod_drop_section.gd" id="11_onp5m"]
@@ -682,7 +683,6 @@ grow_horizontal = 2
 text = "PLAY_AGAIN"
 
 [node name="ModUI" type="Control" parent="UIRoot"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -726,42 +726,28 @@ custom_minimum_size = Vector2(22.64, 38.255)
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="DeleteButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-offset_left = 850.0
-offset_top = 643.0
-offset_right = 950.0
-offset_bottom = 720.0
-text = "DELETE
-"
-
 [node name="CreateButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-offset_left = 960.0
-offset_top = 643.0
-offset_right = 1060.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+offset_right = 100.0
+grow_vertical = 0
 text = "CREATE"
 
-[node name="EditButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+[node name="ImportButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-offset_left = 1070.0
-offset_top = 643.0
-offset_right = 1170.0
-offset_bottom = 720.0
-text = "EDIT"
-
-[node name="ActiveButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-offset_left = 1180.0
-offset_top = 643.0
-offset_right = 1280.0
-offset_bottom = 720.0
-text = "ACTIVE"
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 104.0
+offset_top = -77.0
+offset_right = 204.0
+grow_vertical = 0
+text = "IMPORT"
 
 [node name="ModLabel" type="Label" parent="UIRoot/ModUI/ColorRect"]
 layout_mode = 0
@@ -779,6 +765,144 @@ offset_top = 9.0
 offset_right = 625.0
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 40
+
+[node name="DeleteButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 968.0
+offset_top = 637.0
+offset_right = 1068.0
+offset_bottom = 719.0
+text = "DELETE
+"
+
+[node name="ExportButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 863.0
+offset_top = 637.0
+offset_right = 963.0
+offset_bottom = 719.0
+text = "EXPORT"
+
+[node name="RenameButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 757.0
+offset_top = 637.0
+offset_right = 857.0
+offset_bottom = 719.0
+text = "RENAME"
+
+[node name="EditButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 1074.0
+offset_top = 638.0
+offset_right = 1174.0
+offset_bottom = 720.0
+text = "EDIT"
+
+[node name="ActiveButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 1180.0
+offset_top = 638.0
+offset_right = 1280.0
+offset_bottom = 720.0
+text = "ACTIVE"
+
+[node name="ImportFileDialog" type="FileDialog" parent="UIRoot/ModUI"]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(600, 300)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.skmod")
+
+[node name="ExportFileDialog" type="FileDialog" parent="UIRoot/ModUI"]
+initial_position = 1
+size = Vector2i(600, 300)
+access = 2
+filters = PackedStringArray("*.skmod")
+
+[node name="RenameUI" type="Control" parent="UIRoot/ModUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_3h0l4")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/ModUI/RenameUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -88.0
+offset_right = 147.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="LineEdit" type="LineEdit" parent="UIRoot/ModUI/RenameUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -138.0
+offset_right = 69.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CancelButton" type="Button" parent="UIRoot/ModUI/RenameUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -58.0
+offset_right = 113.0
+offset_bottom = -8.0
+grow_vertical = 0
+text = "CANCEL"
+
+[node name="ConfirmButton" type="Button" parent="UIRoot/ModUI/RenameUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -58.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "CONFIRM"
+
+[node name="Label" type="Label" parent="UIRoot/ModUI/RenameUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "RENAME_MOD"
 
 [node name="EditModUI" type="Control" parent="UIRoot"]
 visible = false
