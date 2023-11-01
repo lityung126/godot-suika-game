@@ -333,6 +333,7 @@ offset_bottom = 199.0
 text = "Loading..."
 
 [node name="SettingUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -683,6 +684,7 @@ grow_horizontal = 2
 text = "PLAY_AGAIN"
 
 [node name="ModUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -726,104 +728,94 @@ custom_minimum_size = Vector2(22.64, 38.255)
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="CreateButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+[node name="RightBotHBoxContainer" type="HBoxContainer" parent="UIRoot/ModUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -84.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="RenameButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "MOD_RENAME"
+
+[node name="ExportButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "MOD_EXPORT"
+
+[node name="DeleteButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "MOD_DELETE"
+
+[node name="EditButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "MOD_EDIT"
+
+[node name="ActiveButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "MOD_ACTIVE"
+
+[node name="LeftBotHBoxContainer" type="HBoxContainer" parent="UIRoot/ModUI/ColorRect"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -77.0
-offset_right = 100.0
+offset_top = -83.0
+offset_right = 80.0
 grow_vertical = 0
-text = "CREATE"
 
-[node name="ImportButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
+[node name="CreateButton" type="Button" parent="UIRoot/ModUI/ColorRect/LeftBotHBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 104.0
-offset_top = -77.0
-offset_right = 204.0
-grow_vertical = 0
-text = "IMPORT"
+layout_mode = 2
+text = "MOD_CREATE"
 
-[node name="ModLabel" type="Label" parent="UIRoot/ModUI/ColorRect"]
+[node name="ImportButton" type="Button" parent="UIRoot/ModUI/ColorRect/LeftBotHBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "MOD_IMPORT"
+
+[node name="LeftTopHBoxContainer" type="HBoxContainer" parent="UIRoot/ModUI/ColorRect"]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 10.0
-offset_right = 364.0
-offset_bottom = 86.0
+offset_right = 621.0
+offset_bottom = 89.0
+
+[node name="ModLabel" type="Label" parent="UIRoot/ModUI/ColorRect/LeftTopHBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Current Mod:"
+text = "CURRENT_MOD:"
 
-[node name="CurrentModLabel" type="Label" parent="UIRoot/ModUI/ColorRect"]
-layout_mode = 0
-offset_left = 361.0
-offset_top = 9.0
-offset_right = 625.0
-offset_bottom = 85.0
+[node name="CurrentModLabel" type="Label" parent="UIRoot/ModUI/ColorRect/LeftTopHBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 40
-
-[node name="DeleteButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-offset_left = 968.0
-offset_top = 637.0
-offset_right = 1068.0
-offset_bottom = 719.0
-text = "DELETE
-"
-
-[node name="ExportButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-offset_left = 863.0
-offset_top = 637.0
-offset_right = 963.0
-offset_bottom = 719.0
-text = "EXPORT"
-
-[node name="RenameButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-offset_left = 757.0
-offset_top = 637.0
-offset_right = 857.0
-offset_bottom = 719.0
-text = "RENAME"
-
-[node name="EditButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-offset_left = 1074.0
-offset_top = 638.0
-offset_right = 1174.0
-offset_bottom = 720.0
-text = "EDIT"
-
-[node name="ActiveButton" type="Button" parent="UIRoot/ModUI/ColorRect"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-offset_left = 1180.0
-offset_top = 638.0
-offset_right = 1280.0
-offset_bottom = 720.0
-text = "ACTIVE"
 
 [node name="ImportFileDialog" type="FileDialog" parent="UIRoot/ModUI"]
-title = "Open a File"
+title = "MOD_IMPORT_SELECT"
 initial_position = 1
 size = Vector2i(600, 300)
 ok_button_text = "Open"
+cancel_button_text = "MOD_IMPORT_SELECT_CANCEL"
+mode_overrides_title = false
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.skmod")
 
 [node name="ExportFileDialog" type="FileDialog" parent="UIRoot/ModUI"]
+title = "MOD_EXPORT_TITLE"
 initial_position = 1
 size = Vector2i(600, 300)
+ok_button_text = "MOD_EXPORT_CONFIRM"
+cancel_button_text = "MOD_EXPORT_CANCEL"
+mode_overrides_title = false
 access = 2
 filters = PackedStringArray("*.skmod")
 
@@ -876,7 +868,7 @@ offset_top = -58.0
 offset_right = 113.0
 offset_bottom = -8.0
 grow_vertical = 0
-text = "CANCEL"
+text = "MOD_RENAME_CANCEL"
 
 [node name="ConfirmButton" type="Button" parent="UIRoot/ModUI/RenameUI/ColorRect"]
 layout_mode = 1
@@ -891,7 +883,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "CONFIRM"
+text = "MOD_RENAME_CONFIRM"
 
 [node name="Label" type="Label" parent="UIRoot/ModUI/RenameUI/ColorRect"]
 layout_mode = 1
@@ -902,7 +894,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 24.0
 grow_horizontal = 2
-text = "RENAME_MOD"
+text = "MOD_RENAME"
 
 [node name="EditModUI" type="Control" parent="UIRoot"]
 visible = false
@@ -943,7 +935,7 @@ offset_top = 3.0
 offset_right = -748.0
 offset_bottom = 72.0
 grow_horizontal = 0
-text = "SAVE"
+text = "MOD_EDIT_SAVE"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UIRoot/EditModUI/ColorRect"]
 layout_mode = 1
@@ -975,7 +967,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "PLAYER"
+text = "MOD_EDIT_PLAYER_TITLE"
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer"]
@@ -989,7 +981,7 @@ stretch_mode = 5
 
 [node name="Button" type="Button" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "EDIT"
+text = "MOD_EDIT_EDIT"
 
 [node name="Path" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -1015,24 +1007,25 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 color = Color(0.156863, 0.156863, 0.156863, 1)
 
-[node name="Label" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer/Title"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer/Title"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
 grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer/Title/HBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "Drops
-"
+text = "MOD_EDIT_DROPS_TITLE"
 vertical_alignment = 1
 
-[node name="AddDropButton" type="Button" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer/Title"]
-layout_mode = 0
-offset_left = 98.0
-offset_top = -1.0
-offset_right = 151.0
-offset_bottom = 52.0
+[node name="AddDropButton" type="Button" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer/Title/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
 text = "+"
 
 [node name="EditDropItemFileDialog" type="FileDialog" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer"]
@@ -1088,7 +1081,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 44.0
 grow_horizontal = 2
-text = "Create Drop Item"
+text = "MOD_EDIT_CREATE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1098,7 +1091,7 @@ offset_left = 53.0
 offset_top = 277.0
 offset_right = 155.0
 offset_bottom = 310.0
-text = "Select Texture"
+text = "SELECT_TEXTURE"
 
 [node name="CloseButton" type="Button" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
 layout_mode = 1
@@ -1131,7 +1124,7 @@ offset_top = 36.5
 offset_right = -11.0
 offset_bottom = 36.5
 grow_horizontal = 0
-text = "Name"
+text = "MOD_EDIT_DROP_NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1160,8 +1153,7 @@ offset_top = 96.5
 offset_right = -14.0
 offset_bottom = 96.5
 grow_horizontal = 0
-text = "Score
-"
+text = "MOD_EDIT_DROP_SCORE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1184,7 +1176,7 @@ offset_top = 91.0
 offset_right = -10.0
 offset_bottom = 91.0
 grow_horizontal = 0
-text = "DropRate"
+text = "MOD_EDIT_DROP_RATE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1210,7 +1202,7 @@ offset_right = 56.5
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "CREATE"
+text = "MOD_EDIT_CREATE"
 
 [node name="EditDropItemControl" type="Control" parent="UIRoot/EditModUI"]
 visible = false
@@ -1254,7 +1246,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 44.0
 grow_horizontal = 2
-text = "Create Drop Item"
+text = "MOD_EDIT_EDIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1264,7 +1256,7 @@ offset_left = 53.0
 offset_top = 277.0
 offset_right = 155.0
 offset_bottom = 310.0
-text = "Select Texture"
+text = "SELECT_TEXTURE"
 
 [node name="CloseButton" type="Button" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
 layout_mode = 1
@@ -1297,7 +1289,7 @@ offset_top = 36.5
 offset_right = -11.0
 offset_bottom = 36.5
 grow_horizontal = 0
-text = "Name"
+text = "MOD_EDIT_DROP_NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1327,8 +1319,7 @@ offset_top = 96.5
 offset_right = -14.0
 offset_bottom = 96.5
 grow_horizontal = 0
-text = "Score
-"
+text = "MOD_EDIT_DROP_SCORE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1351,7 +1342,7 @@ offset_top = 91.0
 offset_right = -10.0
 offset_bottom = 91.0
 grow_horizontal = 0
-text = "DropRate"
+text = "MOD_EDIT_DROP_RATE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1377,4 +1368,4 @@ offset_right = 56.5
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "CREATE"
+text = "MOD_EDIT_UPDATE"

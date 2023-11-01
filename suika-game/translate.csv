@@ -20,3 +20,30 @@ L_RANK,排名,Rank,ランク
 L_NAME,玩家,Player,プレイヤー
 L_WAIT_SEND,正在傳送資料到排行榜...\n請稍後...,sending score to leaderboard...\nplease wait a second...,sending score to leaderboard...\nplease wait a second...
 BACK_TO_TITLE,回到標題,Return To Menu,Return To Menu
+MOD_CREATE,創建Mod,Create Mod,Create Mod
+MOD_IMPORT,匯入,Import,Import
+MOD_RENAME,重新命名,Rename,Rename
+MOD_EXPORT,匯出,Export,Export
+MOD_DELETE,刪除,Delete,Delete
+MOD_EDIT,修改,Edit,Edit
+MOD_ACTIVE,啟用,Active,Active
+MOD_IMPORT_SELECT,選擇Mod檔,Select A Mod File,Select A Mod File
+MOD_IMPORT_SELECT_COMFIRM,選擇,Select,Select
+MOD_IMPORT_SELECT_CANCEL,取消,Cancel,Cancel
+CURRENT_MOD:,啟用中MOD:,Current Mod:,Current Mod:
+MOD_RENAME_CONFIRM,確認,Confirm,Confirm
+MOD_RENAME_CANCEL,取消,Cancel,Cancel
+MOD_EXPORT_TITLE,匯出模組,Export Mod,Export Mod
+MOD_EXPORT_CONFIRM,匯出,export,export
+MOD_EXPORT_CANCEL,取消,cancel,cancel
+MOD_EDIT_PLAYER_TITLE,玩家,Player,Player
+MOD_EDIT_DROPS_TITLE,掉落物,Drops,Drops
+MOD_EDIT_EDIT,修改,Edit,Edit
+MOD_EDIT_DELETE,刪除,Delete,Delete
+MOD_EDIT_DROP_NAME,名稱,Name,Name
+MOD_EDIT_DROP_SCORE,分數,Score,Score
+MOD_EDIT_DROP_RATE,生成機率,Generate Rate,Generate Rate
+MOD_EDIT_CREATE,新增,Create,Create
+MOD_EDIT_UPDATE,更新,Update,Update
+MOD_EDIT_SAVE,存檔,Save,Save
+SELECT_TEXTURE,選擇貼圖,Select Texture,Select Texture

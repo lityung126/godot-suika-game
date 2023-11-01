@@ -3,18 +3,18 @@ extends Control
 @onready var v_box_container = $ColorRect/ScrollContainer/VBoxContainer
 @onready var mod_item_prefab = preload("res://scenes/mod_item.tscn");
 
-@onready var delete_button = $ColorRect/DeleteButton
-@onready var create_button = $ColorRect/CreateButton
-@onready var edit_button = $ColorRect/EditButton
-@onready var active_button = $ColorRect/ActiveButton
-@onready var rename_button = $ColorRect/RenameButton
+@onready var delete_button = $ColorRect/RightBotHBoxContainer/DeleteButton
+@onready var create_button = $ColorRect/LeftBotHBoxContainer/CreateButton
+@onready var edit_button = $ColorRect/RightBotHBoxContainer/EditButton
+@onready var active_button = $ColorRect/RightBotHBoxContainer/ActiveButton
+@onready var rename_button = $ColorRect/RightBotHBoxContainer/RenameButton
 
-@onready var import_button = $ColorRect/ImportButton
-@onready var export_button = $ColorRect/ExportButton
+@onready var import_button = $ColorRect/LeftBotHBoxContainer/ImportButton
+@onready var export_button = $ColorRect/RightBotHBoxContainer/ExportButton
 
 @onready var close_button = $ColorRect/CloseButton
 
-@onready var current_mod_label = $ColorRect/CurrentModLabel
+@onready var current_mod_label = $ColorRect/LeftTopHBoxContainer/CurrentModLabel
 
 @onready var import_file_dialog = $ImportFileDialog
 @onready var export_file_dialog = $ExportFileDialog
@@ -162,6 +162,7 @@ func _on_import_file_dialog_file_selected(file_path:String):
 
 		file.close();
 	_update_mod_list();
+	import_file_dialog.visible = false
 	
 
 func _on_export_file_dialog_file_selected(_file_path:String):

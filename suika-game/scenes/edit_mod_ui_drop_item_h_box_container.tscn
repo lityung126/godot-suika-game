@@ -20,7 +20,7 @@ layout_mode = 2
 
 [node name="NameTitle" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Name"
+text = "MOD_EDIT_DROP_NAME"
 
 [node name="NameLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -28,8 +28,7 @@ horizontal_alignment = 2
 
 [node name="ScoreTitle" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Score
-"
+text = "MOD_EDIT_DROP_SCORE"
 
 [node name="ScoreLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -37,8 +36,7 @@ horizontal_alignment = 2
 
 [node name="DropRateTitle" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "DropRate
-"
+text = "MOD_EDIT_DROP_RATE"
 
 [node name="DropRateLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -50,9 +48,9 @@ layout_mode = 2
 [node name="DeleteButton" type="Button" parent="HBoxContainer/ButtonVBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "Delete"
+text = "MOD_EDIT_DELETE"
 
 [node name="EditButton" type="Button" parent="HBoxContainer/ButtonVBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "Edit"
+text = "MOD_EDIT_EDIT"

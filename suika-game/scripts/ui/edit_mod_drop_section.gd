@@ -8,7 +8,7 @@ var drop_data_dict : Dictionary
 @onready var select_drop_item_control = $"../../../../SelectDropItemControl"
 @onready var edit_drop_item_file_dialog = $EditDropItemFileDialog
 
-@onready var add_drop_button = $Title/AddDropButton
+@onready var add_drop_button = $Title/HBoxContainer/AddDropButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
