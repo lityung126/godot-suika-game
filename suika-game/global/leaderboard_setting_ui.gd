@@ -8,7 +8,7 @@ extends Control
 
 
 var file_path = "streaming_data/settings/secret.ini"
-var config_file = ConfigFile.new();
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,13 +17,15 @@ func _ready():
 	
 
 func on_enable():
-	config_file.clear()
-	var file = FileAccess.open(file_path, FileAccess.WRITE);
-	
+	var file = FileAccess.open(file_path, FileAccess.READ);
+	if file != null : 
+		var config_file = ConfigFile.new();
+		config_file.parse(file.get_as_text())
+		game_id_line_edit.text = config_file.get_value("silentwolf", "game_id","");
+		api_key_line_edit.text = config_file.get_value("silentwolf", "api_key","");
 	
 
 func _on_confirm_button_click():
-	
 	if game_id_line_edit.text.is_empty():
 		printerr("game id empty")
 		return
@@ -33,7 +35,7 @@ func _on_confirm_button_click():
 		return
 	
 	GameManager.ini_leaderboard(api_key_line_edit.text, game_id_line_edit.text)
-	
+	var config_file = ConfigFile.new();
 	config_file.set_value("silentwolf", "game_id", game_id_line_edit.text)
 	config_file.set_value("silentwolf", "api_key", api_key_line_edit.text)
 	var file = FileAccess.open(file_path, FileAccess.WRITE);
