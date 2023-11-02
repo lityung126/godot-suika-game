@@ -51,7 +51,6 @@ func _load_leaderboard():
 			secret_config_file.get_value("silentwolf", "api_key", ""),
 			secret_config_file.get_value("silentwolf", "game_id", "")
 		)
-	pass
 	
 func ini_leaderboard(api_key : String, game_id : String):
 	SilentWolf.configure({

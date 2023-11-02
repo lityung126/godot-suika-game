@@ -47,3 +47,6 @@ MOD_EDIT_CREATE,新增,Create,Create
 MOD_EDIT_UPDATE,更新,Update,Update
 MOD_EDIT_SAVE,存檔,Save,Save
 SELECT_TEXTURE,選擇貼圖,Select Texture,Select Texture
+LEADERBOARD_SETTING,排行榜設定,Leaderboard Setting,Leaderboard Setting
+CONFIRM,確認,Confirm,Confirm
+CANCEL,取消,Cancel,Cancel

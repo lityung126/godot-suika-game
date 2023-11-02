@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://chkgs82h7wms0"]
+[gd_scene load_steps=17 format=3 uid="uid://chkgs82h7wms0"]
 
 [ext_resource type="Script" path="res://global/ui_manager.gd" id="1_d7l5o"]
 [ext_resource type="Script" path="res://scripts/ui/game_view_ui.gd" id="1_ivh0y"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/ui/edit_mod_player_section.gd" id="10_8y0af"]
 [ext_resource type="Script" path="res://scripts/ui/edit_mod_drop_section.gd" id="11_onp5m"]
 [ext_resource type="Script" path="res://scripts/ui/select_drop_item_control.gd" id="12_monhs"]
+[ext_resource type="Script" path="res://global/leaderboard_setting_ui.gd" id="14_qndhv"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_umli1"]
 
@@ -59,56 +60,41 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 5
 
-[node name="PlayButton" type="Button" parent="UIRoot/MenuUI/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/MenuUI/ColorRect"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 88.135
-offset_top = -366.0
-offset_right = 332.135
-offset_bottom = -299.0
-grow_vertical = 0
-text = "START_GAME"
+offset_left = 79.0
+offset_top = 240.0
+offset_right = 325.0
+offset_bottom = 542.0
+theme_override_constants/separation = 15
 
-[node name="SettingButton" type="Button" parent="UIRoot/MenuUI/ColorRect"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 88.135
-offset_top = -269.0
-offset_right = 332.135
-offset_bottom = -202.0
-grow_vertical = 0
-text = "SETTING"
-
-[node name="ModButton" type="Button" parent="UIRoot/MenuUI/ColorRect"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 84.0
-offset_top = -176.0
-offset_right = 328.0
-offset_bottom = -109.0
-grow_vertical = 0
-text = "MOD"
-
-[node name="NameLineEdit" type="LineEdit" parent="UIRoot/MenuUI/ColorRect"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 94.0
-offset_top = -457.0
-offset_right = 332.0
-offset_bottom = -396.0
-grow_vertical = 0
+[node name="NameLineEdit" type="LineEdit" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 auto_translate = false
 localize_numeral_system = false
 placeholder_text = "name for leaderboard"
 max_length = 10
+
+[node name="PlayButton" type="Button" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "START_GAME"
+
+[node name="SettingButton" type="Button" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "SETTING"
+
+[node name="ModButton" type="Button" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "MOD"
+
+[node name="LeaderboardSettingButton" type="Button" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "LEADERBOARD_SETTING"
 
 [node name="GameViewUI" type="Control" parent="UIRoot"]
 visible = false
@@ -1369,3 +1355,88 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "MOD_EDIT_UPDATE"
+
+[node name="LeaderboardSettingUI" type="Control" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_qndhv")
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/LeaderboardSettingUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.5
+offset_top = -79.0
+offset_right = 185.5
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="TitleLabel" type="Label" parent="UIRoot/LeaderboardSettingUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_right = 78.0
+offset_bottom = 27.0
+grow_horizontal = 2
+text = "LEADERBOARD_SETTING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/LeaderboardSettingUI/ColorRect"]
+layout_mode = 2
+offset_top = 54.0
+offset_right = 371.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GameIDHBoxContainer" type="HBoxContainer" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="GameIDLabel" type="Label" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/GameIDHBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Game ID "
+
+[node name="GameIDLineEdit" type="LineEdit" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/GameIDHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+
+[node name="APIKeyHBoxContainer" type="HBoxContainer" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="APIKeyLabel" type="Label" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/APIKeyHBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "API Key "
+
+[node name="APIKeyLineEdit" type="LineEdit" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/APIKeyHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+secret = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="CancelButton" type="Button" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "CANCEL"
+
+[node name="ConfirmButton" type="Button" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "CONFIRM"
