@@ -52,3 +52,5 @@ CONFIRM,確認,Confirm,Confirm
 CANCEL,取消,Cancel,Cancel
 PLAYER_SIZE_HINT,(建議大小50x50-120x120),(recommand size 50x50-120x120),(recommand size 50x50-120x120)
 DROPS_SIZE_HINT,(建議大小40x40-400x400),(recommand size 40x40-400x400),(recommand size 40x40-400x400)
+POSITION_HINT,位置調整(-200~+200),position(-200~+200),position(-200~+200)
+PREVIEW_WINDOW,預覽視窗,preview window, preview window

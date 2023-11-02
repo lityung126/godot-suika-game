@@ -61,12 +61,18 @@ grow_vertical = 2
 expand_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/MenuUI/ColorRect"]
+layout_direction = 2
 layout_mode = 1
-offset_left = 79.0
-offset_top = 240.0
-offset_right = 325.0
-offset_bottom = 542.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 87.0
+offset_top = -487.0
+offset_right = 333.0
+offset_bottom = -57.0
+grow_vertical = 0
 theme_override_constants/separation = 15
+alignment = 2
 
 [node name="NameLineEdit" type="LineEdit" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -883,6 +889,7 @@ grow_horizontal = 2
 text = "MOD_RENAME"
 
 [node name="EditModUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -990,6 +997,106 @@ mode_overrides_title = false
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.png", "*.jpg")
+
+[node name="AdjustPositionHBoxContainer" type="HBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.156863, 0.156863, 0.156863, 0.501961)
+
+[node name="xLine" type="ColorRect" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -2.5
+offset_right = 100.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="yLine" type="ColorRect" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = 1.5
+offset_right = 2.5
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerTextureForAdjustPosition" type="TextureRect" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/Control"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -100.0
+offset_right = 35.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+text = "PREVIEW_WINDOW"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "POSITION_HINT"
+
+[node name="xHBoxContainer" type="HBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="xLabel" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/VBoxContainer/xHBoxContainer"]
+layout_mode = 2
+text = "x : "
+
+[node name="xSpinBox" type="SpinBox" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/VBoxContainer/xHBoxContainer"]
+layout_mode = 2
+min_value = -200.0
+max_value = 200.0
+
+[node name="yHBoxContainer" type="HBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="yLabel" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/VBoxContainer/yHBoxContainer"]
+layout_mode = 2
+text = "y : "
+
+[node name="ySpinBox" type="SpinBox" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/AdjustPositionHBoxContainer/VBoxContainer/yHBoxContainer"]
+layout_mode = 2
+min_value = -200.0
+max_value = 200.0
 
 [node name="DropSectionVBoxContainer" type="VBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer"]
 layout_mode = 2
