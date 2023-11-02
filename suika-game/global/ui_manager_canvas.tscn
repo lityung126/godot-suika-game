@@ -883,7 +883,6 @@ grow_horizontal = 2
 text = "MOD_RENAME"
 
 [node name="EditModUI" type="Control" parent="UIRoot"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -945,15 +944,23 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 color = Color(0.156863, 0.156863, 0.156863, 1)
 
-[node name="Label" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/Title"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/Title"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_right = 320.0
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/Title/HBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "MOD_EDIT_PLAYER_TITLE"
+vertical_alignment = 1
+
+[node name="HintLabel" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer/Title/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "PLAYER_SIZE_HINT"
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer"]
@@ -1013,6 +1020,12 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "+"
+
+[node name="HintLabel" type="Label" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer/Title/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "DROPS_SIZE_HINT"
+vertical_alignment = 1
 
 [node name="EditDropItemFileDialog" type="FileDialog" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer"]
 title = "Select A Player Image"
@@ -1357,6 +1370,7 @@ grow_vertical = 0
 text = "MOD_EDIT_UPDATE"
 
 [node name="LeaderboardSettingUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
