@@ -257,7 +257,8 @@ func _evt_on_rename_click_callback(rename:String):
 	var new_config_path = rename + ".ini"
 	var dir = DirAccess.open(mod_path)
 	dir.rename(config_path, new_config_path)
-	ui_select_mode_name = rename
 	if GameManager.mod_name == ui_select_mode_name:
 		GameManager.mod_name = rename
+		current_mod_label.text = rename
+	ui_select_mode_name = rename
 	_update_mod_list()
