@@ -54,3 +54,7 @@ PLAYER_SIZE_HINT,(建議大小50x50-120x120),(recommand size 50x50-120x120),(rec
 DROPS_SIZE_HINT,(建議大小40x40-400x400),(recommand size 40x40-400x400),(recommand size 40x40-400x400)
 POSITION_HINT,位置調整(-200~+200),position(-200~+200),position(-200~+200)
 PREVIEW_WINDOW,預覽視窗,preview window, preview window
+NOT_SAVE_TITLE,未存檔,Unsaved changes,Unsaved changes
+NOT_SAVE_ALERT,修改未儲存 要保存後離開嗎?,Unsaved changes. Do you want to save and exit?,Unsaved changes. Do you want to save and exit?
+NOT_SAVE_ALERT_SAVE_AND_EXIT,保存並離開,Save and Exit,Save and Exit
+NOT_SAVE_ALERT_EXIT,直接離開,Exit Directly,Exit Directly

@@ -29,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 mouse_filter = 2
 
 [node name="MenuUI" type="Control" parent="UIRoot"]
@@ -40,6 +41,7 @@ offset_left = 1.0
 offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("2_mub81")
 
 [node name="ColorRect" type="ColorRect" parent="UIRoot/MenuUI"]
@@ -49,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 color = Color(0.2, 0.2, 0.2, 1)
 
 [node name="TextureRect" type="TextureRect" parent="UIRoot/MenuUI/ColorRect"]
@@ -71,6 +74,7 @@ offset_top = -487.0
 offset_right = 333.0
 offset_bottom = -57.0
 grow_vertical = 0
+focus_mode = 2
 theme_override_constants/separation = 15
 alignment = 2
 
@@ -85,21 +89,25 @@ max_length = 10
 [node name="PlayButton" type="Button" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+focus_mode = 0
 text = "START_GAME"
 
 [node name="SettingButton" type="Button" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+focus_mode = 0
 text = "SETTING"
 
 [node name="ModButton" type="Button" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+focus_mode = 0
 text = "MOD"
 
 [node name="LeaderboardSettingButton" type="Button" parent="UIRoot/MenuUI/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+focus_mode = 0
 text = "LEADERBOARD_SETTING"
 
 [node name="GameViewUI" type="Control" parent="UIRoot"]
@@ -371,6 +379,7 @@ anchor_right = 1.0
 offset_left = -42.0
 offset_bottom = 37.0
 grow_horizontal = 0
+focus_mode = 0
 text = "X"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/SettingUI/ColorRect"]
@@ -545,6 +554,7 @@ columns = 3
 
 [node name="BackToTitleButton" type="Button" parent="UIRoot/SettingUI/ColorRect/VBoxContainer/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "BACK_TO_TITLE"
 
 [node name="VersionLabel" type="Label" parent="UIRoot/SettingUI/ColorRect"]
@@ -683,6 +693,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("8_rbxhg")
 
 [node name="ColorRect" type="ColorRect" parent="UIRoot/ModUI"]
@@ -702,6 +713,7 @@ anchor_right = 1.0
 offset_left = -96.0
 offset_bottom = 69.0
 grow_horizontal = 0
+focus_mode = 0
 text = "X"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UIRoot/ModUI/ColorRect"]
@@ -735,26 +747,31 @@ grow_vertical = 0
 [node name="RenameButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_mode = 0
 text = "MOD_RENAME"
 
 [node name="ExportButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_mode = 0
 text = "MOD_EXPORT"
 
 [node name="DeleteButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_mode = 0
 text = "MOD_DELETE"
 
 [node name="EditButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_mode = 0
 text = "MOD_EDIT"
 
 [node name="ActiveButton" type="Button" parent="UIRoot/ModUI/ColorRect/RightBotHBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_mode = 0
 text = "MOD_ACTIVE"
 
 [node name="LeftBotHBoxContainer" type="HBoxContainer" parent="UIRoot/ModUI/ColorRect"]
@@ -769,11 +786,13 @@ grow_vertical = 0
 [node name="CreateButton" type="Button" parent="UIRoot/ModUI/ColorRect/LeftBotHBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_mode = 0
 text = "MOD_CREATE"
 
 [node name="ImportButton" type="Button" parent="UIRoot/ModUI/ColorRect/LeftBotHBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_mode = 0
 text = "MOD_IMPORT"
 
 [node name="LeftTopHBoxContainer" type="HBoxContainer" parent="UIRoot/ModUI/ColorRect"]
@@ -819,6 +838,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("9_3h0l4")
 
 [node name="ColorRect" type="ColorRect" parent="UIRoot/ModUI/RenameUI"]
@@ -889,13 +909,13 @@ grow_horizontal = 2
 text = "MOD_RENAME"
 
 [node name="EditModUI" type="Control" parent="UIRoot"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("9_luhi8")
 
 [node name="ColorRect" type="ColorRect" parent="UIRoot/EditModUI"]
@@ -905,6 +925,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 color = Color(0.2, 0.2, 0.2, 1)
 
 [node name="CloseButton" type="Button" parent="UIRoot/EditModUI/ColorRect"]
@@ -915,6 +936,7 @@ anchor_right = 1.0
 offset_left = -96.0
 offset_bottom = 69.0
 grow_horizontal = 0
+focus_mode = 0
 text = "X"
 
 [node name="SaveButton" type="Button" parent="UIRoot/EditModUI/ColorRect"]
@@ -927,6 +949,7 @@ offset_top = 3.0
 offset_right = -748.0
 offset_bottom = 72.0
 grow_horizontal = 0
+focus_mode = 0
 text = "MOD_EDIT_SAVE"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UIRoot/EditModUI/ColorRect"]
@@ -937,13 +960,16 @@ anchor_bottom = 1.0
 offset_top = 72.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer"]
 custom_minimum_size = Vector2(1280, 0)
 layout_mode = 2
+focus_mode = 2
 
 [node name="PlayerSectionVBoxContainer" type="VBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 2
 script = ExtResource("10_8y0af")
 
 [node name="Title" type="ColorRect" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/PlayerSectionVBoxContainer"]
@@ -1100,6 +1126,7 @@ max_value = 200.0
 
 [node name="DropSectionVBoxContainer" type="VBoxContainer" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 2
 script = ExtResource("11_onp5m")
 
 [node name="Title" type="ColorRect" parent="UIRoot/EditModUI/ColorRect/ScrollContainer/VBoxContainer/DropSectionVBoxContainer"]
@@ -1153,6 +1180,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("12_monhs")
 
 [node name="SelectDropItemFileDialog" type="FileDialog" parent="UIRoot/EditModUI/SelectDropItemControl"]
@@ -1179,6 +1207,7 @@ offset_right = 242.0
 offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Label" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
@@ -1197,6 +1226,7 @@ offset_left = 53.0
 offset_top = 277.0
 offset_right = 155.0
 offset_bottom = 310.0
+focus_mode = 0
 text = "SELECT_TEXTURE"
 
 [node name="CloseButton" type="Button" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
@@ -1207,6 +1237,7 @@ anchor_right = 1.0
 offset_left = -44.0
 offset_bottom = 33.0
 grow_horizontal = 0
+focus_mode = 0
 text = "X"
 
 [node name="TextureRect" type="TextureRect" parent="UIRoot/EditModUI/SelectDropItemControl/ColorRect"]
@@ -1308,6 +1339,7 @@ offset_right = 56.5
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_mode = 0
 text = "MOD_EDIT_CREATE"
 
 [node name="EditDropItemControl" type="Control" parent="UIRoot/EditModUI"]
@@ -1318,6 +1350,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("12_monhs")
 
 [node name="SelectDropItemFileDialog" type="FileDialog" parent="UIRoot/EditModUI/EditDropItemControl"]
@@ -1344,6 +1377,7 @@ offset_right = 242.0
 offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Label" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
@@ -1362,6 +1396,7 @@ offset_left = 53.0
 offset_top = 277.0
 offset_right = 155.0
 offset_bottom = 310.0
+focus_mode = 0
 text = "SELECT_TEXTURE"
 
 [node name="CloseButton" type="Button" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
@@ -1372,6 +1407,7 @@ anchor_right = 1.0
 offset_left = -44.0
 offset_bottom = 33.0
 grow_horizontal = 0
+focus_mode = 0
 text = "X"
 
 [node name="TextureRect" type="TextureRect" parent="UIRoot/EditModUI/EditDropItemControl/ColorRect"]
@@ -1474,7 +1510,16 @@ offset_right = 56.5
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_mode = 0
 text = "MOD_EDIT_UPDATE"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="UIRoot/EditModUI"]
+title = "NOT_SAVE_TITLE"
+initial_position = 2
+size = Vector2i(475, 100)
+ok_button_text = "NOT_SAVE_ALERT_SAVE_AND_EXIT"
+dialog_text = "NOT_SAVE_ALERT"
+cancel_button_text = "NOT_SAVE_ALERT_EXIT"
 
 [node name="LeaderboardSettingUI" type="Control" parent="UIRoot"]
 visible = false
@@ -1484,6 +1529,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("14_qndhv")
 
 [node name="ColorRect" type="ColorRect" parent="UIRoot/LeaderboardSettingUI"]
@@ -1499,6 +1545,7 @@ offset_right = 185.5
 offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 color = Color(0.156863, 0.156863, 0.156863, 1)
 
 [node name="TitleLabel" type="Label" parent="UIRoot/LeaderboardSettingUI/ColorRect"]
@@ -1521,9 +1568,11 @@ offset_right = 371.0
 offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_mode = 2
 
 [node name="GameIDHBoxContainer" type="HBoxContainer" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer"]
 layout_mode = 2
+focus_mode = 2
 
 [node name="GameIDLabel" type="Label" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/GameIDHBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -1537,6 +1586,7 @@ auto_translate = false
 
 [node name="APIKeyHBoxContainer" type="HBoxContainer" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer"]
 layout_mode = 2
+focus_mode = 2
 
 [node name="APIKeyLabel" type="Label" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/APIKeyHBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -1556,8 +1606,10 @@ alignment = 1
 
 [node name="CancelButton" type="Button" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "CANCEL"
 
 [node name="ConfirmButton" type="Button" parent="UIRoot/LeaderboardSettingUI/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "CONFIRM"

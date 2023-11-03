@@ -10,6 +10,7 @@ extends VBoxContainer
 @onready var y_spin_box = $AdjustPositionHBoxContainer/VBoxContainer/yHBoxContainer/ySpinBox
 @onready var player_texture_for_adjust_position = $AdjustPositionHBoxContainer/Control/PlayerTextureForAdjustPosition
 
+signal evt_on_config_modify()
 
 var config_file : ConfigFile
 
@@ -32,8 +33,8 @@ func set_data(config_file):
 	var offset_y = config_file.get_value(section_name, "offset_y")
 	player_texture_for_adjust_position.position.x = offset_x
 	player_texture_for_adjust_position.position.y = offset_y
-	x_spin_box.set_value(offset_x)
-	y_spin_box.set_value(offset_y)
+	x_spin_box.set_value_no_signal(offset_x)
+	y_spin_box.set_value_no_signal(offset_y)
 
 func _on_edit_button_click():
 	select_player_file_dialog.visible = true
@@ -46,14 +47,14 @@ func _on_player_image_file_selected(file_path : String):
 	player_texture.set_texture(ResourceManager.get_texture(file_path))
 	player_texture_for_adjust_position.set_texture(ResourceManager.get_texture(file_path))
 	config_file.set_value("player", "player_image_path", file_path)
+	evt_on_config_modify.emit()
 
 func on_x_spin_box_value_change(value):
 	player_texture_for_adjust_position.position.x = value
 	config_file.set_value("player", "offset_x",value)
-	
-	pass
+	evt_on_config_modify.emit()
 
 func on_y_spin_box_value_change(value):
 	player_texture_for_adjust_position.position.y = value
 	config_file.set_value("player", "offset_y",value)
-	pass
+	evt_on_config_modify.emit()

@@ -7,11 +7,16 @@ var drop_data_dict : Dictionary
 @onready var edit_drop_item_control = $"../../../../EditDropItemControl"
 @onready var select_drop_item_control = $"../../../../SelectDropItemControl"
 @onready var edit_drop_item_file_dialog = $EditDropItemFileDialog
+@onready var scroll_container : ScrollContainer = $"../.."
+var v_scroll_bar : VScrollBar
 
 @onready var add_drop_button = $Title/HBoxContainer/AddDropButton
 
+signal evt_on_config_modify()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	v_scroll_bar = scroll_container.get_v_scroll_bar()
 	add_drop_button.button_up.connect(_on_button_up_click)
 	select_drop_item_control.on_drop_item_created.connect(_on_drop_item_created)
 	edit_drop_item_control.on_drop_item_edit_end.connect(_on_drop_item_edit_end)
@@ -71,7 +76,16 @@ func _on_drop_item_created(path, drop_name, drop_score, drop_rate):
 	_config_file.set_value("drops", drop_name, path)
 	_config_file.set_value("drop_rate", drop_name, drop_rate)
 	_config_file.set_value("score", drop_name, drop_score)
+	evt_on_config_modify.emit()
 	set_data(_config_file)
+	
+	v_scroll_bar.changed.connect(scroll_to_end, Object.CONNECT_ONE_SHOT)
+	
+	
+
+func scroll_to_end():
+	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
+	pass
 
 func _on_drop_item_edit_end(node, path, drop_name, drop_score, drop_rate):
 	edit_drop_item_control.visible = true
@@ -84,7 +98,9 @@ func _on_drop_item_edit_end(node, path, drop_name, drop_score, drop_rate):
 			_config_file.set_value("drops", drop_name, path)
 			_config_file.set_value("drop_rate", drop_name, drop_rate)
 			_config_file.set_value("score", drop_name, drop_score)
+			evt_on_config_modify.emit()
 			set_data(_config_file)
+	edit_drop_item_control.visible = false
 	
 
 func on_item_delete_click(drop_name : String):
