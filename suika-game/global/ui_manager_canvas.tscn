@@ -190,6 +190,7 @@ anchor_right = 1.0
 offset_left = -104.0
 offset_bottom = 46.0
 grow_horizontal = 0
+focus_mode = 0
 text = "SETTING"
 
 [node name="ColorRect2" type="ColorRect" parent="UIRoot/GameViewUI"]
@@ -880,6 +881,7 @@ offset_top = -58.0
 offset_right = 113.0
 offset_bottom = -8.0
 grow_vertical = 0
+focus_mode = 0
 text = "MOD_RENAME_CANCEL"
 
 [node name="ConfirmButton" type="Button" parent="UIRoot/ModUI/RenameUI/ColorRect"]
@@ -895,6 +897,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
+focus_mode = 0
 text = "MOD_RENAME_CONFIRM"
 
 [node name="Label" type="Label" parent="UIRoot/ModUI/RenameUI/ColorRect"]
@@ -909,6 +912,7 @@ grow_horizontal = 2
 text = "MOD_RENAME"
 
 [node name="EditModUI" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

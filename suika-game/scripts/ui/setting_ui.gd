@@ -46,18 +46,6 @@ func _on_check_box_change(enabled : bool):
 func on_enable():
 	back_to_title_button.visible = get_tree().current_scene.name == "game_scene";
 
-
-func _process(_delta):
-	if Input.is_action_just_released("ui_cancel"):
-		_on_close_click()
-
-func _exit_tree():
-	lang_option_button.item_selected.disconnect(_on_lang_change);
-	main_sound_h_slider.value_changed.disconnect(_on_main_sound_h_slider_change)
-	bgm_sound_h_slider.value_changed.disconnect(_on_bgm_sound_h_slider_change)
-	fx_sound_h_slider.value_changed.disconnect(_on_fx_sound_h_slider_change)
-	close_button.button_up.disconnect(_on_close_click)
-
 func _on_main_sound_h_slider_change(value : float):
 	main_sound_value.text = str(value)
 	AudioManager.set_master_volume(value)
@@ -83,9 +71,13 @@ func _on_lang_change(index: int):
 			TranslationServer.set_locale("ja")
 
 func _on_close_click():
+	if not close_button.is_hovered():
+		return;
 	UIManagerCanvas.hide_ui(UIManager.UI_NAMES.SettingUI);
 
 func _on_back_to_title_button_click():
+	if not back_to_title_button.is_hovered():
+		return
 	ScoreManager.clear_score();
 	get_tree().change_scene_to_file("res://scenes/menu_scene.tscn")
 

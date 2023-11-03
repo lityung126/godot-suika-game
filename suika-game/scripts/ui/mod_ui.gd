@@ -85,6 +85,9 @@ func _set_none_select_button():
 	rename_button.visible = false
 
 func _on_mod_item_click(sender):
+	if not sender.is_hovered():
+		return
+		
 	ui_select_mode_name = sender.name
 	
 	delete_button.visible = ui_select_mode_name != CANT_DELETE_MOD
@@ -94,6 +97,8 @@ func _on_mod_item_click(sender):
 	rename_button.visible = ui_select_mode_name != CANT_DELETE_MOD
 
 func _on_delete_click():
+	if not delete_button.is_hovered():
+		return
 	print("delete click")
 	var dir = DirAccess.open(mod_path)
 	dir.remove(ui_select_mode_name + ".ini")
@@ -104,6 +109,8 @@ func _on_delete_click():
 	_update_mod_list()
 
 func _on_create_click():
+	if not create_button.is_hovered():
+		return;
 	var dir = DirAccess.open(mod_path)
 	var reference_file_name = DEFAULT_MOD_NAME
 	var index : int = 1;
@@ -117,26 +124,38 @@ func _on_create_click():
 	_update_mod_list()
 
 func _on_active_click():
+	if not active_button.is_hovered():
+		return
 	GameManager.mod_name = ui_select_mode_name
 	current_mod_label.text = GameManager.mod_name
 	
 	on_mod_changed.emit()
 
 func _on_rename_click():
+	if not rename_button.is_hovered():
+		return
 	rename_ui.visible = true
 
 func _on_import_click():
+	if not import_button.is_hovered():
+		return
 	import_file_dialog.visible = true
 
 func _on_export_click():
+	if not export_button.is_hovered():
+		return
 	export_file_dialog.visible = true
 
 func _on_edit_click():
+	if not edit_button.is_hovered():
+		return
 	var editModUI = UIManagerCanvas.show_ui(UIManager.UI_NAMES.EditModUI)
 	editModUI.edit_mod(ui_select_mode_name)
 	
 
 func _on_close_button_click():
+	if not close_button.is_hovered():
+		return
 	UIManagerCanvas.hide_ui(UIManager.UI_NAMES.ModUI);
 
 func _on_import_file_dialog_file_selected(file_path:String):

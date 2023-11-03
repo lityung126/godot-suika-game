@@ -16,6 +16,8 @@ func _ready():
 
 
 func _on_confirm_button_click():
+	if not confirm_button.is_hovered():
+		return;
 	if line_edit.text.is_empty():
 		printerr("text null")
 	else :
@@ -24,5 +26,7 @@ func _on_confirm_button_click():
 		
 
 func _on_cancel_button_click():
+	if not cancel_button.is_hovered():
+		return;
 	self.visible = false
 	pass

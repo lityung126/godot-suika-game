@@ -37,6 +37,8 @@ func set_data(config_file):
 	y_spin_box.set_value_no_signal(offset_y)
 
 func _on_edit_button_click():
+	if not edit_button.is_hovered():
+		return
 	select_player_file_dialog.visible = true
 	pass
 

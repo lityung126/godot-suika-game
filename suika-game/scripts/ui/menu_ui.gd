@@ -24,16 +24,24 @@ func on_enable():
 	name_line_edit.text = GameManager.save_local.player_name
 
 func _on_play_button_click():
+	if not play_button.is_hovered():
+		return;
 	GameManager.set_player_name(name_line_edit.text);
 	get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
 	
 func _on_setting_button_click():
+	if not setting_button.is_hovered():
+		return;
 	UIManagerCanvas.show_ui(UIManager.UI_NAMES.SettingUI);
 
 func _on_mod_button_click():
+	if not mod_button.is_hovered():
+		return;
 	UIManagerCanvas.show_ui(UIManager.UI_NAMES.ModUI);
 
 func _on_leaderboard_setting_button_click():
+	if not leaderboard_setting_button.is_hovered():
+		return
 	UIManagerCanvas.show_ui(UIManager.UI_NAMES.LeaderboardSettingUI);
 
 func _load_bg():

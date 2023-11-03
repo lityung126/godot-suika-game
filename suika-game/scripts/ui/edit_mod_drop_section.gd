@@ -65,6 +65,8 @@ func set_data(config_file):
 		drop_section_item.set_data(drop_data)
 
 func _on_button_up_click():
+	if not add_drop_button.is_hovered():
+		return
 	select_drop_item_control.visible = true
 	pass
 

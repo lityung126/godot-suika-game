@@ -26,6 +26,8 @@ func on_enable():
 	
 
 func _on_confirm_button_click():
+	if not confirm_button.is_hovered():
+		return;
 	if game_id_line_edit.text.is_empty():
 		printerr("game id empty")
 		return
@@ -45,5 +47,7 @@ func _on_confirm_button_click():
 	UIManagerCanvas.hide_ui(UIManager.UI_NAMES.LeaderboardSettingUI);
 
 func _on_cancel_button_click():
+	if not cancel_button.is_hovered():
+		return
 	UIManagerCanvas.hide_ui(UIManager.UI_NAMES.LeaderboardSettingUI);
 	

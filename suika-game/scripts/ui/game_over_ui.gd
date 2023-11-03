@@ -11,6 +11,8 @@ func _ready():
 	
 
 func _on_play_again_click():
+	if not play_again_button.is_hovered():
+		return
 	GameManager.restart_game();
 
 func on_enable():

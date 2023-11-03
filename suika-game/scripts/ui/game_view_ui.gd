@@ -34,6 +34,8 @@ func _updateTextureRect():
 			nextTextureRect.texture = ResourceManager.get_texture(drop_item_config.image_path)
 
 func _on_setting_click():
+	if not setting_button.is_hovered():
+		return
 	UIManagerCanvas.show_ui(UIManager.UI_NAMES.SettingUI);
 
 func on_enable():

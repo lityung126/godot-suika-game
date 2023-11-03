@@ -38,10 +38,14 @@ func set_data(node, drop_name, drop_path, drop_score, drop_rate):
 	name_line_edit.editable = false
 
 func _on_select_drop_texture_button_click():
+	if not select_drop_texture_button.is_hovered():
+		return;
 	select_drop_item_file_dialog.visible = true
 	
 
 func _on_close_button_click():
+	if not close_button.is_hovered():
+		return
 	self.visible = false
 
 func _on_drop_item_texture_select(file_path):
@@ -49,6 +53,8 @@ func _on_drop_item_texture_select(file_path):
 	drop_texture_path = file_path
 	
 func _on_create_button_click():
+	if not create_button.is_hovered():
+		return
 	# 防呆
 	if drop_texture_path.is_empty():
 		printerr("please select a texture")

@@ -22,9 +22,13 @@ func set_data(data):
 	score_label.text = str(data.score)
 
 func _on_delete_button_click():
+	if not delete_button.is_hovered():
+		return
 	evt_on_delete_click.emit(name_label.text)
 	
 func _on_edit_button_click():
+	if not edit_button.is_hovered():
+		return
 	evt_on_edit_click.emit(self, temp_data.name, temp_data.path, temp_data.score, temp_data.drop_rate)
 
 

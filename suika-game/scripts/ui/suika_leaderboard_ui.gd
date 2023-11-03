@@ -18,16 +18,22 @@ func _ready():
 func on_enable():
 	if GameManager.can_use_leaderboard:
 		today_button.set_pressed_no_signal(true)
-		_on_today_click()
+		get_leaderboard("daily")
+		_set_is_loading(true)
 	else :
 		self.visible = false
 	
 
 func _on_today_click():
+	if not today_button.is_hovered():
+		return
 	get_leaderboard("daily")
 	_set_is_loading(true)
 
 func _on_overall_click():
+	if not overall_button.is_hovered():
+		return
+		
 	get_leaderboard("main")
 	_set_is_loading(true)
 

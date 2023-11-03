@@ -31,6 +31,8 @@ func on_evt_on_config_modify_callback():
 	is_modified = true
 
 func _on_close_button_click():
+	if not close_button.is_hovered():
+		return
 	if is_modified == true:
 		confirmation_dialog.visible = true
 	else:
@@ -56,15 +58,21 @@ func _set_ui():
 	
 
 func _on_save_button_click():
+	if not save_button.is_hovered():
+		return
 	_save()
 
 func _on_confirm_dialog_ok_click():
+	if not confirmation_dialog.get_ok_button().is_hovered():
+		return
 	print("save")
 	_save()
 	confirmation_dialog.visible = false
 	UIManagerCanvas.hide_ui(UIManager.UI_NAMES.EditModUI)
 
 func _on_confirm_dialog_cancel_click():
+	if not confirmation_dialog.get_cancel_button().is_hovered():
+		return
 	print("no save")
 	confirmation_dialog.visible = false
 	UIManagerCanvas.hide_ui(UIManager.UI_NAMES.EditModUI)
