@@ -31,10 +31,18 @@ func set_data(config_file):
 	
 	var offset_x = config_file.get_value(section_name, "offset_x")
 	var offset_y = config_file.get_value(section_name, "offset_y")
-	player_texture_for_adjust_position.position.x = offset_x
-	player_texture_for_adjust_position.position.y = offset_y
+
+	# for fix wrong position bug
+	# set position twice and idk why
+	_ini_pos(offset_x,offset_y)
+	_ini_pos(offset_x,offset_y)
+
 	x_spin_box.set_value_no_signal(offset_x)
 	y_spin_box.set_value_no_signal(offset_y)
+
+func _ini_pos(x: float,y:float):
+	player_texture_for_adjust_position.position.x = x
+	player_texture_for_adjust_position.position.y = y
 
 func _on_edit_button_click():
 	if not edit_button.is_hovered():
