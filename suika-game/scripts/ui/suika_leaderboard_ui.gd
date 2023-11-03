@@ -17,6 +17,7 @@ func _ready():
 
 func on_enable():
 	if GameManager.can_use_leaderboard:
+		self.visible = true
 		today_button.set_pressed_no_signal(true)
 		get_leaderboard("daily")
 		_set_is_loading(true)
