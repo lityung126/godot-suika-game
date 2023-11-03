@@ -40,6 +40,8 @@ func add_texture(spritePath : String):
 
 func _on_body_entered(body: Node):
 	var dropItem = body as DropItemTemplate;
+	if self.is_combining == true:
+		return
 	if dropItem == null:
 		return
 	# 碰到drop item 後就可以開啟判定結束了
@@ -50,6 +52,7 @@ func _on_body_entered(body: Node):
 		return
 	if dropItem.is_combining == true:
 		return
+	
 	
 	self.is_combining = true;
 	dropItem.is_combining = true;

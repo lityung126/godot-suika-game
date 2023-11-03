@@ -39,14 +39,14 @@ speed = 200.0
 move_area = NodePath("../moveline")
 hand_node = NodePath("hand_point")
 
-[node name="skin_sprite" type="Sprite2D" parent="Player"]
-position = Vector2(17.5701, -16.7247)
-texture = ExtResource("3_3ung0")
-
 [node name="support_line" type="Sprite2D" parent="Player"]
 position = Vector2(0, 316.157)
 scale = Vector2(3, 630)
 texture = ExtResource("4_vdkhh")
+
+[node name="skin_sprite" type="Sprite2D" parent="Player"]
+position = Vector2(17.5701, -16.7247)
+texture = ExtResource("3_3ung0")
 
 [node name="hand_point" type="Node2D" parent="Player"]
 
